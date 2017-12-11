@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <!-- XML Schema Generated from XML Document on Mon Dec 11 2017 17:26:03 GMT+0530 (+0530) -->
+    <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+    <xs:element name="Server">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Name" type="xs:string"></xs:element>
+                <xs:element name="ServerKey" type="xs:string"></xs:element>
+                <xs:element name="Version" type="xs:string"></xs:element>
+                <xs:element name="ServerURL" type="xs:string"></xs:element>
+                <xs:element name="ServerRoles">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Role" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Package" type="xs:string"></xs:element>
+                <xs:element name="WebContextRoot" type="xs:string"></xs:element>
+                <xs:element name="ItemsPerPage" type="xs:int"></xs:element>
+                <xs:element name="Ports">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Offset" type="xs:int"></xs:element>
+                            <xs:element name="JMX">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="RMIRegistryPort" type="xs:int"></xs:element>
+                                        <xs:element name="RMIServerPort" type="xs:int"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EmbeddedLDAP">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="LDAPServerPort" type="xs:int"></xs:element>
+                                        <xs:element name="KDCServerPort" type="xs:int"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ThriftEntitlementReceivePort" type="xs:int"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="JNDI">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DefaultInitialContextFactory" type="xs:string"></xs:element>
+                            <xs:element name="Restrictions">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AllTenants">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="UrlContexts">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="UrlContext">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Scheme" type="xs:string"></xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="IsCloudDeployment" type="xs:string"></xs:element>
+                <xs:element name="EnableMetering" type="xs:string"></xs:element>
+                <xs:element name="MaxThreadExecutionTime" type="xs:int"></xs:element>
+                <xs:element name="GhostDeployment">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Tenant">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="LoadingPolicy">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="LazyLoading">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="IdleTime" type="xs:int"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Cache">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DefaultCacheTimeout" type="xs:int"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Axis2Config">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="RepositoryLocation" type="xs:string"></xs:element>
+                            <xs:element name="DeploymentUpdateInterval" type="xs:int"></xs:element>
+                            <xs:element name="ConfigurationFile" type="xs:string"></xs:element>
+                            <xs:element name="ServiceGroupContextIdleTime" type="xs:int"></xs:element>
+                            <xs:element name="ClientRepositoryLocation" type="xs:string"></xs:element>
+                            <xs:element name="clientAxis2XmlLocation" type="xs:string"></xs:element>
+                            <xs:element name="HideAdminServiceWSDLs" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ServiceUserRoles">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Role" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Name" type="xs:string"></xs:element>
+                                        <xs:element name="Description" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Security">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="KeyStore">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Location" type="xs:string"></xs:element>
+                                        <xs:element name="Type" type="xs:string"></xs:element>
+                                        <xs:element name="Password" type="xs:string"></xs:element>
+                                        <xs:element name="KeyAlias" type="xs:string"></xs:element>
+                                        <xs:element name="KeyPassword" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="TrustStore">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Location" type="xs:string"></xs:element>
+                                        <xs:element name="Type" type="xs:string"></xs:element>
+                                        <xs:element name="Password" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="NetworkAuthenticatorConfig"></xs:element>
+                            <xs:element name="TomcatRealm" type="xs:string"></xs:element>
+                            <xs:element name="DisableTokenStore" type="xs:string"></xs:element>
+                            <xs:element name="XSSPreventionConfig">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Enabled" type="xs:string"></xs:element>
+                                        <xs:element name="Rule" type="xs:string"></xs:element>
+                                        <xs:element name="Patterns"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="HideMenuItemIds">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="HideMenuItemId" maxOccurs="unbounded" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="WorkDirectory" type="xs:string"></xs:element>
+                <xs:element name="HouseKeeping">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="AutoStart" type="xs:string"></xs:element>
+                            <xs:element name="Interval" type="xs:int"></xs:element>
+                            <xs:element name="MaxTempFileLifetime" type="xs:int"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="FileUploadConfig">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="TotalFileSizeLimit" type="xs:int"></xs:element>
+                            <xs:element name="Mapping" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Actions">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Action" maxOccurs="unbounded" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Class" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="HttpGetRequestProcessors">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Processor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Item" type="xs:string"></xs:element>
+                                        <xs:element name="Class" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DeploymentSynchronizer">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                            <xs:element name="AutoCommit" type="xs:string"></xs:element>
+                            <xs:element name="AutoCheckout" type="xs:string"></xs:element>
+                            <xs:element name="RepositoryType" type="xs:string"></xs:element>
+                            <xs:element name="SvnUrl" type="xs:string"></xs:element>
+                            <xs:element name="SvnUser" type="xs:string"></xs:element>
+                            <xs:element name="SvnPassword" type="xs:string"></xs:element>
+                            <xs:element name="SvnUrlAppendTenantId" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ServerInitializers"></xs:element>
+                <xs:element name="RequireCarbonServlet" type="xs:string"></xs:element>
+                <xs:element name="StatisticsReporterDisabled" type="xs:string"></xs:element>
+                <xs:element name="FeatureRepository">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="RepositoryName" type="xs:string"></xs:element>
+                            <xs:element name="RepositoryURL" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="APIManagement">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                            <xs:element name="LoadAPIContextsInServerStartup" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="xmlns" type="xs:string"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <!-- XML Schema Generated from XML Document on Mon Dec 11 2017 13:49:15 GMT+0530 (+0530) -->
+    <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+    <xs:element name="APIManager">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DataSourceName" type="xs:string"></xs:element>
+                <xs:element name="GatewayType" type="xs:string"></xs:element>
+                <xs:element name="EnableSecureVault" type="xs:string"></xs:element>
+                <xs:element name="AuthManager">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ServerURL" type="xs:string"></xs:element>
+                            <xs:element name="Username" type="xs:string"></xs:element>
+                            <xs:element name="Password" type="xs:string"></xs:element>
+                            <xs:element name="CheckPermissionsRemotely" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="JWTConfiguration">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="JWTHeader" type="xs:string"></xs:element>
+                            <xs:element name="JWTGeneratorImpl" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="APIGateway">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Environments">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Environment">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Description" type="xs:string"></xs:element>
+                                                    <xs:element name="ServerURL" type="xs:string"></xs:element>
+                                                    <xs:element name="Username" type="xs:string"></xs:element>
+                                                    <xs:element name="Password" type="xs:string"></xs:element>
+                                                    <xs:element name="GatewayEndpoint" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="type" type="xs:string"></xs:attribute>
+                                                <xs:attribute name="api-console" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="CacheConfigurations">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="EnableGatewayTokenCache" type="xs:string"></xs:element>
+                            <xs:element name="EnableGatewayResourceCache" type="xs:string"></xs:element>
+                            <xs:element name="EnableKeyManagerTokenCache" type="xs:string"></xs:element>
+                            <xs:element name="EnableRecentlyAddedAPICache" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Analytics">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                            <xs:element name="DASServerURL" type="xs:string"></xs:element>
+                            <xs:element name="DASUsername" type="xs:string"></xs:element>
+                            <xs:element name="DASPassword" type="xs:string"></xs:element>
+                            <xs:element name="StatsProviderImpl" type="xs:string"></xs:element>
+                            <xs:element name="DASRestApiURL" type="xs:string"></xs:element>
+                            <xs:element name="DASRestApiUsername" type="xs:string"></xs:element>
+                            <xs:element name="DASRestApiPassword" type="xs:string"></xs:element>
+                            <xs:element name="SkipEventReceiverConnection" type="xs:string"></xs:element>
+                            <xs:element name="PublisherClass" type="xs:string"></xs:element>
+                            <xs:element name="PublishResponseMessageSize" type="xs:string"></xs:element>
+                            <xs:element name="Streams">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Request">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Response">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Fault">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Throttle">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Workflow">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ExecutionTime">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="AlertTypes">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Name" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="APIKeyValidator">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ServerURL" type="xs:string"></xs:element>
+                            <xs:element name="Username" type="xs:string"></xs:element>
+                            <xs:element name="Password" type="xs:string"></xs:element>
+                            <xs:element name="KeyValidatorClientType" type="xs:string"></xs:element>
+                            <xs:element name="ThriftClientConnectionTimeOut" type="xs:int"></xs:element>
+                            <xs:element name="EnableThriftServer" type="xs:string"></xs:element>
+                            <xs:element name="ThriftServerHost" type="xs:string"></xs:element>
+                            <xs:element name="KeyValidationHandlerClassName" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="OAuthConfigurations">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ApplicationTokenScope" type="xs:string"></xs:element>
+                            <xs:element name="TokenEndPointName" type="xs:string"></xs:element>
+                            <xs:element name="RevokeAPIURL" type="xs:string"></xs:element>
+                            <xs:element name="EncryptPersistedTokens" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TierManagement">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="EnableUnlimitedTier" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="APIStore">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CompareCaseInsensitively" type="xs:string"></xs:element>
+                            <xs:element name="DisplayURL" type="xs:string"></xs:element>
+                            <xs:element name="URL" type="xs:string"></xs:element>
+                            <xs:element name="ServerURL" type="xs:string"></xs:element>
+                            <xs:element name="Username" type="xs:string"></xs:element>
+                            <xs:element name="Password" type="xs:string"></xs:element>
+                            <xs:element name="DisplayMultipleVersions" type="xs:string"></xs:element>
+                            <xs:element name="DisplayAllAPIs" type="xs:string"></xs:element>
+                            <xs:element name="DisplayComments" type="xs:string"></xs:element>
+                            <xs:element name="DisplayRatings" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="APIPublisher">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DisplayURL" type="xs:string"></xs:element>
+                            <xs:element name="URL" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="StartupAPIPublisher">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                            <xs:element name="LocalAPIs">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="LocalAPI">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Context" type="xs:string"></xs:element>
+                                                    <xs:element name="Provider" type="xs:string"></xs:element>
+                                                    <xs:element name="Version" type="xs:string"></xs:element>
+                                                    <xs:element name="IconPath" type="xs:string"></xs:element>
+                                                    <xs:element name="DocumentURL" type="xs:string"></xs:element>
+                                                    <xs:element name="AuthType" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="CORSConfiguration">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                            <xs:element name="Access-Control-Allow-Origin" type="xs:string"></xs:element>
+                            <xs:element name="Access-Control-Allow-Methods" type="xs:string"></xs:element>
+                            <xs:element name="Access-Control-Allow-Headers" type="xs:string"></xs:element>
+                            <xs:element name="Access-Control-Allow-Credentials" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="RESTAPI">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="WhiteListedURIs">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="WhiteListedURI" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="URI" type="xs:string"></xs:element>
+                                                    <xs:element name="HTTPMethods" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ETagSkipList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ETagSkipURI" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="URI" type="xs:string"></xs:element>
+                                                    <xs:element name="HTTPMethods" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ThrottlingConfigurations">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="EnableAdvanceThrottling" type="xs:string"></xs:element>
+                            <xs:element name="DataPublisher">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Enabled" type="xs:string"></xs:element>
+                                        <xs:element name="Type" type="xs:string"></xs:element>
+                                        <xs:element name="ReceiverUrlGroup" type="xs:string"></xs:element>
+                                        <xs:element name="AuthUrlGroup" type="xs:string"></xs:element>
+                                        <xs:element name="Username" type="xs:string"></xs:element>
+                                        <xs:element name="Password" type="xs:string"></xs:element>
+                                        <xs:element name="DataPublisherPool">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MaxIdle" type="xs:int"></xs:element>
+                                                    <xs:element name="InitIdleCapacity" type="xs:int"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="DataPublisherThreadPool">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CorePoolSize" type="xs:int"></xs:element>
+                                                    <xs:element name="MaxmimumPoolSize" type="xs:int"></xs:element>
+                                                    <xs:element name="KeepAliveTime" type="xs:int"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PolicyDeployer">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ServiceURL" type="xs:string"></xs:element>
+                                        <xs:element name="Username" type="xs:string"></xs:element>
+                                        <xs:element name="Password" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BlockCondition">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Enabled" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="JMSConnectionDetails">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Enabled" type="xs:string"></xs:element>
+                                        <xs:element name="ServiceURL" type="xs:string"></xs:element>
+                                        <xs:element name="Username" type="xs:string"></xs:element>
+                                        <xs:element name="Password" type="xs:string"></xs:element>
+                                        <xs:element name="Destination" type="xs:string"></xs:element>
+                                        <xs:element name="JMSConnectionParameters">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="transport.jms.ConnectionFactoryJNDIName" type="xs:string"></xs:element>
+                                                    <xs:element name="transport.jms.DestinationType" type="xs:string"></xs:element>
+                                                    <xs:element name="java.naming.factory.initial" type="xs:string"></xs:element>
+                                                    <xs:element name="connectionfactory.TopicConnectionFactory" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="JMSTaskManager">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MinThreadPoolSize" type="xs:int"></xs:element>
+                                                    <xs:element name="MaxThreadPoolSize" type="xs:int"></xs:element>
+                                                    <xs:element name="KeepAliveTimeInMillis" type="xs:int"></xs:element>
+                                                    <xs:element name="JobQueueSize" type="xs:int"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="JMSEventPublisherParameters">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="java.naming.factory.initial" type="xs:string"></xs:element>
+                                        <xs:element name="java.naming.provider.url" type="xs:string"></xs:element>
+                                        <xs:element name="transport.jms.DestinationType" type="xs:string"></xs:element>
+                                        <xs:element name="transport.jms.Destination" type="xs:string"></xs:element>
+                                        <xs:element name="transport.jms.ConcurrentPublishers" type="xs:string"></xs:element>
+                                        <xs:element name="transport.jms.ConnectionFactoryJNDIName" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="EnableUnlimitedTier" type="xs:string"></xs:element>
+                            <xs:element name="EnableHeaderConditions" type="xs:string"></xs:element>
+                            <xs:element name="EnableJWTClaimConditions" type="xs:string"></xs:element>
+                            <xs:element name="EnableQueryParamConditions" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="WorkflowConfigurations">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Enabled" type="xs:string"></xs:element>
+                            <xs:element name="ServerUrl" type="xs:string"></xs:element>
+                            <xs:element name="ServerUser" type="xs:string"></xs:element>
+                            <xs:element name="ServerPassword" type="xs:string"></xs:element>
+                            <xs:element name="WorkflowCallbackAPI" type="xs:string"></xs:element>
+                            <xs:element name="TokenEndPoint" type="xs:string"></xs:element>
+                            <xs:element name="DCREndPoint" type="xs:string"></xs:element>
+                            <xs:element name="DCREndPointUser" type="xs:string"></xs:element>
+                            <xs:element name="DCREndPointPassword" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="SwaggerCodegen">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ClientGeneration">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="GroupId" type="xs:string"></xs:element>
+                                        <xs:element name="ArtifactId" type="xs:string"></xs:element>
+                                        <xs:element name="ModelPackage" type="xs:string"></xs:element>
+                                        <xs:element name="ApiPackage" type="xs:string"></xs:element>
+                                        <xs:element name="SupportedLanguages" type="xs:string"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

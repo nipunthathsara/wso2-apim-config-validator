@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <!-- XML Schema Generated from XML Document on Mon Dec 11 2017 17:27:56 GMT+0530 (+0530) -->
+    <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+    <xs:element name="UserManager">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Realm">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Configuration">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AddAdmin" type="xs:string"></xs:element>
+                                        <xs:element name="AdminRole" type="xs:string"></xs:element>
+                                        <xs:element name="AdminUser">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="UserName" type="xs:string"></xs:element>
+                                                    <xs:element name="Password" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="EveryOneRoleName" type="xs:string"></xs:element>
+                                        <xs:element name="Property" maxOccurs="unbounded" type="xs:string">
+                                            <xs:complexType>
+                                                <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="UserStoreManager">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Property" maxOccurs="unbounded" type="xs:string">
+                                            <xs:complexType>
+                                                <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AuthorizationManager">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Property" maxOccurs="unbounded" type="xs:string">
+                                            <xs:complexType>
+                                                <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="class" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
