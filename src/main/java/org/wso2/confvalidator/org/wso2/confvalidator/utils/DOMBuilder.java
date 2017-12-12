@@ -46,6 +46,4 @@ public class DOMBuilder {
         }
         return configs;
     }
-
-
 }

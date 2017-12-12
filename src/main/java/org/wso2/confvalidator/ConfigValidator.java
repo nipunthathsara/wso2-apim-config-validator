@@ -3,6 +3,7 @@ package org.wso2.confvalidator;
 import org.w3c.dom.Document;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.DOMBuilder;
+import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONReader;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -16,6 +17,9 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
+ * This class initiates the validation
+ * Prompt to other classes for further validations
+ *
  * Created by nipun on Dec, 2017
  */
 public class ConfigValidator {
@@ -33,6 +37,9 @@ public class ConfigValidator {
             System.out.println("Validating " + Constants.CONF_NAME_ARRAY[i]);
             System.out.println(validateXML(Constants.KB_ROOT + Constants.XSD_PATH_ARRAY[i], Constants.CONF_ROOT + Constants.CONF_PATH_ARRAY[i]));
         }
+
+        APIManagerValidator apiManagerValidator = new APIManagerValidator(apiManagerXML, carbonXML, userMgtXML);
+        apiManagerValidator.validateApiMangerCommonConfigs();
     }
 
     /**

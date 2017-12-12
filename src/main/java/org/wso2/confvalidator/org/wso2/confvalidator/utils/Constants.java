@@ -20,4 +20,9 @@ public class Constants {
     public static final String CARBON_XSD_PATH = "/xsd/carbon.xsd";
     public static final String USER_MGT_XSD_PATH = "/xsd/user-mgt.xsd";
     public static final String[] XSD_PATH_ARRAY = {API_MANAGER_XSD_PATH, CARBON_XSD_PATH, USER_MGT_XSD_PATH};
+
+    public static final String API_MANAGER_JSON_PATH = "/json/api-manager.json";
+    public static final String CARBON_JSON_PATH = "/json/carbon.json";
+    public static final String USER_MGT_JSON_PATH = "/json/user-mgt.json";
+    public static final String[] JSON_PATH_ARRAY = {API_MANAGER_JSON_PATH, CARBON_JSON_PATH, USER_MGT_JSON_PATH};
 }
