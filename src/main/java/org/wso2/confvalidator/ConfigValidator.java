@@ -3,7 +3,6 @@ package org.wso2.confvalidator;
 import org.w3c.dom.Document;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.DOMBuilder;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONReader;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -32,14 +31,14 @@ public class ConfigValidator {
         Document carbonXML = configs.get(Constants.CARBON_XML);
         Document userMgtXML = configs.get(Constants.USER_MGT_XML);
 
-        //validating against XSD
+        //validating against XSDs
         for (int i = 0; i < Constants.CONF_PATH_ARRAY.length; i++) {
             System.out.println("Validating " + Constants.CONF_NAME_ARRAY[i]);
             System.out.println(validateXML(Constants.KB_ROOT + Constants.XSD_PATH_ARRAY[i], Constants.CONF_ROOT + Constants.CONF_PATH_ARRAY[i]));
         }
 
         APIManagerValidator apiManagerValidator = new APIManagerValidator(apiManagerXML, carbonXML, userMgtXML);
-        apiManagerValidator.validateApiMangerCommonConfigs();
+        apiManagerValidator.iterator();
     }
 
     /**

@@ -1,41 +1,63 @@
 {
-  "APIManager": {
-    "DataSourceName": {
-      "xpath" : "//APIManager/DataSourceName/text()",
-      "default" : "jdbc/WSO2AM_DB",
-      "mandatory" : "yes",
-      "crossReference" : {
-        "store" : ["api-manager.xml//APIManager/DataSourceName/text()", "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"],
-        "publisher" : ["api-manager.xml//APIManager/DataSourceName/text()", "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"],
-        "keyManager" : ["api-manager.xml//APIManager/DataSourceName/text()", "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"]
-      }
-    },
-    "GatewayType": {
-      "default" : "Synapse",
-      "parsableValues" : ["Synapse", "None"]
-    },
-    "EnableSecureVault": {
-      "default" : "false",
-      "parsableValues" : "true, false"
-    },
-    "AuthManager": {
+  "DataSourceName": {
+    "xpath": "//APIManager/DataSourceName/text()",
+    "default": "jdbc/WSO2AM_DB",
+    "mandatory": "yes",
+    "crossReference": {
+      "store": [
+        "api-manager.xml//APIManager/DataSourceName/text()",
+        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+      ],
+      "publisher": [
+        "api-manager.xml//APIManager/DataSourceName/text()",
+        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+      ],
+      "keyManager": [
+        "api-manager.xml//APIManager/DataSourceName/text()",
+        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+      ]
+    }
+  },
+  "GatewayType": {
+    "xpath": "//APIManager/DataSourceName/text()",
+    "default": "Synapse",
+    "parsableValues": [
+      "Synapse",
+      "None"
+    ]
+  },
+  "EnableSecureVault": {
+    "xpath": "//APIManager/DataSourceName/text()",
+    "default": "false",
+    "parsableValues": "true, false"
+  },
+  "AuthManager": {
+    "options": {
       "ServerURL": {
-        "default" : "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
-        "regex" : "",
-        "crossReference" : {
-          "store" : ["api-manager.xml//APIManager/AuthManager/ServerURL/text()"],
-          "publisher" : ["api-manager.xml//APIManager/AuthManager/ServerURL/text()"]
+        "default": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+        "regex": "",
+        "crossReference": {
+          "store": [
+            "api-manager.xml//APIManager/AuthManager/ServerURL/text()"
+          ],
+          "publisher": [
+            "api-manager.xml//APIManager/AuthManager/ServerURL/text()"
+          ]
         }
       },
       "Username": "${admin.username}",
       "Password": "${admin.password}",
       "CheckPermissionsRemotely": "false"
-    },
-    "JWTConfiguration": {
+    }
+  },
+  "JWTConfiguration": {
+    "options": {
       "JWTHeader": "X-JWT-Assertion",
       "JWTGeneratorImpl": "org.wso2.carbon.apimgt.keymgt.token.JWTGenerator"
-    },
-    "APIGateway": {
+    }
+  },
+  "APIGateway": {
+    "options": {
       "Environments": {
         "Environment": {
           "-type": "hybrid",
@@ -48,14 +70,18 @@
           "GatewayEndpoint": "http://${carbon.local.ip}:${http.nio.port},https://${carbon.local.ip}:${https.nio.port}"
         }
       }
-    },
-    "CacheConfigurations": {
+    }
+  },
+  "CacheConfigurations": {
+    "options": {
       "EnableGatewayTokenCache": "true",
       "EnableGatewayResourceCache": "true",
       "EnableKeyManagerTokenCache": "false",
       "EnableRecentlyAddedAPICache": "false"
-    },
-    "Analytics": {
+    }
+  },
+  "Analytics": {
+    "options": {
       "Enabled": "false",
       "DASServerURL": "{tcp://localhost:7612}",
       "DASUsername": "${admin.username}",
@@ -114,7 +140,9 @@
       "RevokeAPIURL": "https://localhost:${https.nio.port}/revoke",
       "EncryptPersistedTokens": "false"
     },
-    "TierManagement": { "EnableUnlimitedTier": "true" },
+    "TierManagement": {
+      "EnableUnlimitedTier": "true"
+    },
     "APIStore": {
       "CompareCaseInsensitively": "true",
       "DisplayURL": "false",
@@ -345,7 +373,9 @@
         "Username": "${admin.username}",
         "Password": "${admin.password}"
       },
-      "BlockCondition": { "Enabled": "true" },
+      "BlockCondition": {
+        "Enabled": "true"
+      },
       "JMSConnectionDetails": {
         "Enabled": "true",
         "ServiceURL": "tcp://${carbon.local.ip}:${jms.port}",
