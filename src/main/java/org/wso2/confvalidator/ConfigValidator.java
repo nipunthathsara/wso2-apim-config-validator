@@ -37,8 +37,8 @@ public class ConfigValidator {
         configs = ConfigLoader.loadConfigs(distribution);
 
         //load Json KB for all nodes. Access by: Node name >> Conf file name
-        JSONLoader jsonReader = new JSONLoader();
-        jsonKB = jsonReader.loadJsons();
+        JSONLoader jsonLoader = new JSONLoader();
+        jsonKB = jsonLoader.loadJsons();
 
         //validate all existing nodes (profiles)
         for(Map.Entry<String, Boolean> entry : distribution.entrySet()){
@@ -51,27 +51,13 @@ public class ConfigValidator {
                         Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(currentNode) + Constants.CONF_PATH_MAP.get(configurationFile));
                 }
 
-
-
+                APIManagerValidator apiManagerValidator = new APIManagerValidator(configs, currentNode, jsonKB);
+                apiManagerValidator.iterator();
+                /**
+                 * TODO call carbon xml validator, call masterDS validator etc.
+                 */
             }
         }
-
-        //***************************
-        domBuilder = new DOMBuilder();
-        Map<String, Document> configs = domBuilder.loadFiles();
-        Document apiManagerXML = configs.get(Constants.API_MANAGER_XML);
-        Document carbonXML = configs.get(Constants.CARBON_XML);
-        Document userMgtXML = configs.get(Constants.USER_MGT_XML);
-
-        //validating against XSDs
-        for (int i = 0; i < Constants.CONF_PATH_ARRAY.length; i++) {
-            System.out.println("Validating " + Constants.CONF_NAME_ARRAY[i]);
-            System.out.println(validateXML(Constants.KB_ROOT + Constants.XSD_PATH_ARRAY[i],
-                    Constants.CONF_ROOT + Constants.CONF_PATH_ARRAY[i]));
-        }
-
-        APIManagerValidator apiManagerValidator = new APIManagerValidator(apiManagerXML, carbonXML, userMgtXML);
-        apiManagerValidator.iterator();
     }
 
     /**

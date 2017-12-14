@@ -17,32 +17,21 @@ import java.util.Map;
  * Created by nipun on Dec, 2017
  */
 public class APIManagerValidator {
-    private Document apiManagerXML;
-    private Document carbonXML;
-    private Document userMgtXML;
-    private Map<String, JSONObject> jsons;
+    private static Map<String, Map<String, Document>> configs;
+    private static Map<String, Map<String, JSONObject>> jsonKB;
+    private static String currentNode;
 
-    private Map<String, Map<String, Document>> configs;
-    private String currentNode;
-
-    public APIManagerValidator(Map<String, Map<String, Document>> configs, String currentNode){
+    public APIManagerValidator(Map<String, Map<String, Document>> configs, String currentNode, Map<String, Map<String, JSONObject>> jsonKB){
         this.configs = configs;
         this.currentNode = currentNode;
-
-    }
-
-    public APIManagerValidator(Document apiManagerXML, Document carbonXML, Document userMgtXML) {
-        this.apiManagerXML = apiManagerXML;
-        this.carbonXML = carbonXML;
-        this.userMgtXML = userMgtXML;
-        jsons = (new JSONLoader()).loadJsons();
+        this.jsonKB = jsonKB;
     }
 
     /**
      * Method to iterate configurations
      */
     public void iterator() {
-        JSONObject apiManagerKB = jsons.get(Constants.API_MANAGER_XML);
+        JSONObject apiManagerKB = jsonKB.get(currentNode).get(Constants.API_MANAGER_XML);
         Iterator<?> keySet = apiManagerKB.keySet().iterator();
         while (keySet.hasNext()) {
             String key = (String) keySet.next();
@@ -54,16 +43,15 @@ public class APIManagerValidator {
 
     /**
      * TODO remove overloading. keep only one
-     * Method to re-iterate sub configurations
-     *
-     * @param configurations
+     * Method to re-iterate sub subConfigurations
+     * @param subConfigurations
      */
-    public void iterator(JSONObject configurations) {
-        Iterator<?> keySet = configurations.keySet().iterator();
+    public void iterator(JSONObject subConfigurations) {
+        Iterator<?> keySet = subConfigurations.keySet().iterator();
         while (keySet.hasNext()) {
             String key = (String) keySet.next();
-            if (configurations.get(key) instanceof JSONObject) {
-                validateApiMangerCommonConfigs((JSONObject) configurations.get(key));
+            if (subConfigurations.get(key) instanceof JSONObject) {
+                validateApiMangerCommonConfigs((JSONObject) subConfigurations.get(key));
             }
         }
     }
@@ -75,8 +63,9 @@ public class APIManagerValidator {
             return;
         }
         //Get value in XML
+        //TODO null check
         String xpath = (String) configuration.get("xpath");
-        String value = (new XpathEvaluator()).evaluateXpath(this.apiManagerXML, xpath, XPathConstants.STRING).toString();
+        String value = (new XpathEvaluator()).evaluateXpath(configs.get(currentNode).get(Constants.API_MANAGER_XML), xpath, XPathConstants.STRING).toString();
 
         //Mandatory Check
         if (configuration.containsKey("mandatory") && "yes".equals(configuration.get("mandatory")) && "".equals(value)) {

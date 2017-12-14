@@ -28,4 +28,11 @@ hs_err_pid*
 confvalidator.iml
 /src/resources/conf/
 
+# Ignore conf directories
+/configurations/gw/conf
+/configurations/km/conf
+/configurations/pub/conf
+/configurations/store/conf
+/configurations/tm/conf
+
 
