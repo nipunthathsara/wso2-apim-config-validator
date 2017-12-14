@@ -1,8 +1,11 @@
 package org.wso2.confvalidator;
 
+import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
+import org.wso2.confvalidator.org.wso2.confvalidator.utils.ConfigLoader;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.DOMBuilder;
+import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONLoader;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -23,8 +26,37 @@ import java.util.Map;
  */
 public class ConfigValidator {
     private static DOMBuilder domBuilder;
+    private static Map<String, Map<String, Document>> configs;
+    private static Map<String, Map<String, JSONObject>> jsonKB;
+    private static Map<String, Boolean> distribution;
+    private static String currentNode;
 
     public static void main(String[] args) {
+        //loads all the configurations from all available nodes. Access by: Node name >> Conf file name
+        distribution = ConfigLoader.identifySetup();
+        configs = ConfigLoader.loadConfigs(distribution);
+
+        //load Json KB for all nodes. Access by: Node name >> Conf file name
+        JSONLoader jsonReader = new JSONLoader();
+        jsonKB = jsonReader.loadJsons();
+
+        //validate all existing nodes (profiles)
+        for(Map.Entry<String, Boolean> entry : distribution.entrySet()){
+            if(entry.getValue()){
+                currentNode = entry.getKey();
+
+                //validate current node's confs against xsd
+                for(Map.Entry<String, Document> configurationFile : configs.get(currentNode).entrySet()){
+                    validateXML(Constants.KB_ROOT + Constants.XSD_KB + Constants.XSD_PATH_MAP.get(configurationFile),
+                        Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(currentNode) + Constants.CONF_PATH_MAP.get(configurationFile));
+                }
+
+
+
+            }
+        }
+
+        //***************************
         domBuilder = new DOMBuilder();
         Map<String, Document> configs = domBuilder.loadFiles();
         Document apiManagerXML = configs.get(Constants.API_MANAGER_XML);
@@ -34,7 +66,8 @@ public class ConfigValidator {
         //validating against XSDs
         for (int i = 0; i < Constants.CONF_PATH_ARRAY.length; i++) {
             System.out.println("Validating " + Constants.CONF_NAME_ARRAY[i]);
-            System.out.println(validateXML(Constants.KB_ROOT + Constants.XSD_PATH_ARRAY[i], Constants.CONF_ROOT + Constants.CONF_PATH_ARRAY[i]));
+            System.out.println(validateXML(Constants.KB_ROOT + Constants.XSD_PATH_ARRAY[i],
+                    Constants.CONF_ROOT + Constants.CONF_PATH_ARRAY[i]));
         }
 
         APIManagerValidator apiManagerValidator = new APIManagerValidator(apiManagerXML, carbonXML, userMgtXML);

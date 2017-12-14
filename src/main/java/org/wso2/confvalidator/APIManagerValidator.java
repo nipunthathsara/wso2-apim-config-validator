@@ -1,11 +1,10 @@
 package org.wso2.confvalidator;
 
-import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONReader;
+import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONLoader;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
 
 import javax.xml.xpath.XPathConstants;
@@ -23,11 +22,20 @@ public class APIManagerValidator {
     private Document userMgtXML;
     private Map<String, JSONObject> jsons;
 
+    private Map<String, Map<String, Document>> configs;
+    private String currentNode;
+
+    public APIManagerValidator(Map<String, Map<String, Document>> configs, String currentNode){
+        this.configs = configs;
+        this.currentNode = currentNode;
+
+    }
+
     public APIManagerValidator(Document apiManagerXML, Document carbonXML, Document userMgtXML) {
         this.apiManagerXML = apiManagerXML;
         this.carbonXML = carbonXML;
         this.userMgtXML = userMgtXML;
-        jsons = (new JSONReader()).loadJsons();
+        jsons = (new JSONLoader()).loadJsons();
     }
 
     /**
