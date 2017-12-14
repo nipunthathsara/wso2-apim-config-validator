@@ -29,7 +29,7 @@
   "EnableSecureVault": {
     "xpath": "//APIManager/DataSourceName/text()",
     "default": "false",
-    "parsableValues": "true, false"
+    "parsableValues": ["true", "false"]
   },
   "AuthManager": {
     "options": {
