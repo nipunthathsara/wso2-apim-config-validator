@@ -4,7 +4,6 @@ import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.ConfigLoader;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.DOMBuilder;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONLoader;
 import org.xml.sax.SAXException;
 
@@ -16,6 +15,7 @@ import javax.xml.validation.Validator;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,8 +25,7 @@ import java.util.Map;
  * Created by nipun on Dec, 2017
  */
 public class ConfigValidator {
-    private static DOMBuilder domBuilder;
-    private static Map<String, Map<String, Document>> configs;
+    private static Map<String, Map<String, Document>> configs = new HashMap();
     private static Map<String, Map<String, JSONObject>> jsonKB;
     private static Map<String, Boolean> distribution;
     private static String currentNode;
@@ -53,6 +52,8 @@ public class ConfigValidator {
 
                 APIManagerValidator apiManagerValidator = new APIManagerValidator(configs, currentNode, jsonKB);
                 apiManagerValidator.iterator();
+
+
                 /**
                  * TODO call carbon xml validator, call masterDS validator etc.
                  */

@@ -35,42 +35,22 @@ public class JSONLoader {
         return jsonObject;
     }
 
-//    /**
-//     * Load all jsons in the KB
-//     * @return
-//     */
-//    public Map<String, JSONObject> loadJsons() {
-//        JSONObject jsonObject = null;
-//        for (int i = 0; i < Constants.JSON_PATH_ARRAY.length; i++) {
-//            String filePath = Constants.KB_ROOT + Constants.JSON_PATH_ARRAY[i];
-//            try {
-//                Object object = parser.parse(new FileReader(filePath));
-//                jsonObject = (JSONObject) object;
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-//            jsons.put(Constants.CONF_NAME_ARRAY[i], jsonObject);
-//        }
-//        return jsons;
-//    }
-
     /**
-     * Load all Json knowledge bases
+     * Loads all Jsons from knowledge base
      * for every node
      * @return
      */
     public Map<String, Map<String, JSONObject>> loadJsons(){
         Map<String, Map<String, JSONObject>> jasonKB = new HashMap();
-        Map<String, JSONObject> nodeKb = new HashMap();
         JSONObject jsonObject = null;
         for (int i = 0; i < Constants.NODE_NAME_ARRAY.length; i++) {
+            Map<String, JSONObject> nodeKb = new HashMap();
             for(Map.Entry<String, String> entry : Constants.JSON_PATH_MAP.entrySet()){
-                jsonObject = this.readJson(Constants.KB_ROOT + Constants.JSON_KB + entry.getValue());
+                jsonObject = this.readJson(Constants.KB_ROOT + Constants.JSON_KB +
+                        Constants.NODE_PATH_MAP.get(Constants.NODE_NAME_ARRAY[i]) + entry.getValue());
                 nodeKb.put(entry.getKey(), jsonObject);
             }
-            jasonKB.put(Constants.NODE_NAME_ARRAY[i], jsonObject);
+            jasonKB.put(Constants.NODE_NAME_ARRAY[i], nodeKb);
         }
         return jasonKB;
     }

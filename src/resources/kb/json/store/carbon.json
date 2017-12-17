@@ -1,0 +1,179 @@
+{
+  "Server": {
+    "-xmlns": "http://wso2.org/projects/carbon/carbon.xml",
+    "Name": "WSO2 API Manager",
+    "ServerKey": "AM",
+    "Version": "2.1.0",
+    "ServerURL": "local:/${carbon.context}/services/",
+    "ServerRoles": { "Role": "APIManager" },
+    "Package": "org.wso2.carbon",
+    "WebContextRoot": "/",
+    "ItemsPerPage": "15",
+    "Ports": {
+      "Offset": "0",
+      "JMX": {
+        "RMIRegistryPort": "9999",
+        "RMIServerPort": "11111"
+      },
+      "EmbeddedLDAP": {
+        "LDAPServerPort": "10389",
+        "KDCServerPort": "8000"
+      },
+      "ThriftEntitlementReceivePort": "10500"
+    },
+    "JNDI": {
+      "DefaultInitialContextFactory": "org.wso2.carbon.tomcat.jndi.CarbonJavaURLContextFactory",
+      "Restrictions": {
+        "AllTenants": {
+          "UrlContexts": {
+            "UrlContext": { "Scheme": "java" }
+          }
+        }
+      }
+    },
+    "IsCloudDeployment": "false",
+    "EnableMetering": "false",
+    "MaxThreadExecutionTime": "600",
+    "GhostDeployment": { "Enabled": "false" },
+    "Tenant": {
+      "LoadingPolicy": {
+        "LazyLoading": { "IdleTime": "30" }
+      }
+    },
+    "Cache": { "DefaultCacheTimeout": "15" },
+    "Axis2Config": {
+      "RepositoryLocation": "${carbon.home}/repository/deployment/server/",
+      "DeploymentUpdateInterval": "15",
+      "ConfigurationFile": "${carbon.home}/repository/conf/axis2/axis2.xml",
+      "ServiceGroupContextIdleTime": "30000",
+      "ClientRepositoryLocation": "${carbon.home}/repository/deployment/client/",
+      "clientAxis2XmlLocation": "${carbon.home}/repository/conf/axis2/axis2_client.xml",
+      "HideAdminServiceWSDLs": "true"
+    },
+    "ServiceUserRoles": {
+      "Role": [
+        {
+          "Name": "admin",
+          "Description": "Default Administrator Role"
+        },
+        {
+          "Name": "user",
+          "Description": "Default User Role"
+        }
+      ]
+    },
+    "Security": {
+      "KeyStore": {
+        "Location": "${carbon.home}/repository/resources/security/wso2carbon.jks",
+        "Type": "JKS",
+        "Password": "wso2carbon",
+        "KeyAlias": "wso2carbon",
+        "KeyPassword": "wso2carbon"
+      },
+      "TrustStore": {
+        "Location": "${carbon.home}/repository/resources/security/client-truststore.jks",
+        "Type": "JKS",
+        "Password": "wso2carbon"
+      },
+      "NetworkAuthenticatorConfig": {
+
+      },
+      "TomcatRealm": "UserManager",
+      "DisableTokenStore": "false",
+      "XSSPreventionConfig": {
+        "Enabled": "true",
+        "Rule": "allow",
+        "Patterns": {
+
+        }
+      }
+    },
+    "HideMenuItemIds": {
+      "HideMenuItemId": [
+        "claim_mgt_menu",
+        "identity_mgt_emailtemplate_menu",
+        "identity_security_questions_menu"
+      ]
+    },
+    "WorkDirectory": "${carbon.home}/tmp/work",
+    "HouseKeeping": {
+      "AutoStart": "true",
+      "Interval": "10",
+      "MaxTempFileLifetime": "30"
+    },
+    "FileUploadConfig": {
+      "TotalFileSizeLimit": "100",
+      "Mapping": [
+        {
+          "Actions": {
+            "Action": [
+              "keystore",
+              "certificate",
+              "*"
+            ]
+          },
+          "Class": "org.wso2.carbon.ui.transports.fileupload.AnyFileUploadExecutor"
+        },
+        {
+          "Actions": { "Action": "jarZip" },
+          "Class": "org.wso2.carbon.ui.transports.fileupload.JarZipUploadExecutor"
+        },
+        {
+          "Actions": { "Action": "dbs" },
+          "Class": "org.wso2.carbon.ui.transports.fileupload.DBSFileUploadExecutor"
+        },
+        {
+          "Actions": { "Action": "tools" },
+          "Class": "org.wso2.carbon.ui.transports.fileupload.ToolsFileUploadExecutor"
+        },
+        {
+          "Actions": { "Action": "toolsAny" },
+          "Class": "org.wso2.carbon.ui.transports.fileupload.ToolsAnyFileUploadExecutor"
+        }
+      ]
+    },
+    "HttpGetRequestProcessors": {
+      "Processor": [
+        {
+          "Item": "info",
+          "Class": "org.wso2.carbon.core.transports.util.InfoProcessor"
+        },
+        {
+          "Item": "wsdl",
+          "Class": "org.wso2.carbon.core.transports.util.Wsdl11Processor"
+        },
+        {
+          "Item": "wsdl2",
+          "Class": "org.wso2.carbon.core.transports.util.Wsdl20Processor"
+        },
+        {
+          "Item": "xsd",
+          "Class": "org.wso2.carbon.core.transports.util.XsdProcessor"
+        }
+      ]
+    },
+    "DeploymentSynchronizer": {
+      "Enabled": "false",
+      "AutoCommit": "false",
+      "AutoCheckout": "true",
+      "RepositoryType": "svn",
+      "SvnUrl": "http://svnrepo.example.com/repos/",
+      "SvnUser": "username",
+      "SvnPassword": "password",
+      "SvnUrlAppendTenantId": "true"
+    },
+    "ServerInitializers": {
+
+    },
+    "RequireCarbonServlet": "${require.carbon.servlet}",
+    "StatisticsReporterDisabled": "true",
+    "FeatureRepository": {
+      "RepositoryName": "default repository",
+      "RepositoryURL": "http://product-dist.wso2.com/p2/carbon/releases/wilkes/"
+    },
+    "APIManagement": {
+      "Enabled": "true",
+      "LoadAPIContextsInServerStartup": "true"
+    }
+  }
+}

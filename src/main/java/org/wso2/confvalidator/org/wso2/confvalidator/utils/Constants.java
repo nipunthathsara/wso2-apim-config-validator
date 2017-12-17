@@ -17,14 +17,14 @@ public class Constants {
     public static final String STORE_PATH = "/store";
     public static final String TM_PATH = "/tm";
     public static final String[] NODE_PATH_ARRAY = {GW_PATH, KM_PATH, PUB_PATH, STORE_PATH, TM_PATH};
-    public static final Map<String, String> NODE_PATH_MAP = new HashMap<String, String>();
+    public static final Map<String, String> NODE_PATH_MAP = new HashMap();
 
     //TODO Take CONF_ROOT as a JVM argument
     public static final String API_MANAGER_XML_PATH = "/conf/api-manager.xml";
     public static final String CARBON_XML_PATH = "/conf/carbon.xml";
     public static final String USER_MGT_XML_PATH = "/conf/user-mgt.xml";
     public static final String[] CONF_PATH_ARRAY = {API_MANAGER_XML_PATH, CARBON_XML_PATH, USER_MGT_XML_PATH};
-    public static final Map<String, String> CONF_PATH_MAP = new HashMap<String, String>();
+    public static final Map<String, String> CONF_PATH_MAP = new HashMap();
 
     public static final String API_MANAGER_XML = "api-manager.xml";
     public static final String CARBON_XML = "carbon.xml";
@@ -62,7 +62,5 @@ public class Constants {
             JSON_PATH_MAP.put(CONF_NAME_ARRAY[i], JSON_PATH_ARRAY[i]);
             XSD_PATH_MAP.put(CONF_NAME_ARRAY[i], XSD_PATH_ARRAY[i]);
         }
-
     }
-
 }

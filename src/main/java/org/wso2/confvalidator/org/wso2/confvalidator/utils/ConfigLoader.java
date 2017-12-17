@@ -3,13 +3,14 @@ package org.wso2.confvalidator.org.wso2.confvalidator.utils;
 import org.w3c.dom.Document;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by nipun on Dec, 2017
  */
 public class ConfigLoader {
-    private static Map<String, Boolean> distribution;
+    private static Map<String, Boolean> distribution = new HashMap();
     private static DOMBuilder domBuilder;
 
     /**
@@ -19,7 +20,7 @@ public class ConfigLoader {
      */
     public static  Map<String, Boolean> identifySetup() {
         for (int i = 0; i < Constants.NODE_PATH_ARRAY.length; i++) {
-            String path = Constants.CONF_ROOT + Constants.NODE_PATH_ARRAY[i];
+            String path = Constants.CONF_ROOT + Constants.NODE_PATH_ARRAY[i] + "/conf";
             File directory = new File(path);
             if (directory.exists()) {
                 distribution.put(Constants.NODE_NAME_ARRAY[i], true);
@@ -37,7 +38,7 @@ public class ConfigLoader {
      */
     public static Map<String, Map<String, Document>> loadConfigs(Map<String, Boolean> distribution){
         //Configuration files for each node
-        Map<String, Map<String, Document>> configs = null;
+        Map<String, Map<String, Document>> configs = new HashMap();
         domBuilder = new DOMBuilder();
         for (Map.Entry<String, Boolean> entry : distribution.entrySet()){
             if(entry.getValue()){

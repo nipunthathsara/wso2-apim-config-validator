@@ -4,7 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONLoader;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
 
 import javax.xml.xpath.XPathConstants;
@@ -63,9 +62,14 @@ public class APIManagerValidator {
             return;
         }
         //Get value in XML
-        //TODO null check
-        String xpath = (String) configuration.get("xpath");
-        String value = (new XpathEvaluator()).evaluateXpath(configs.get(currentNode).get(Constants.API_MANAGER_XML), xpath, XPathConstants.STRING).toString();
+        String xpath;
+        String value;
+        if(configuration.containsKey("xpath")) {
+            xpath = (String) configuration.get("xpath");
+            value = (new XpathEvaluator()).evaluateXpath(configs.get(currentNode).get(Constants.API_MANAGER_XML), xpath, XPathConstants.STRING).toString();
+        }else{
+            return; //return if value can not be obtained
+        }
 
         //Mandatory Check
         if (configuration.containsKey("mandatory") && "yes".equals(configuration.get("mandatory")) && "".equals(value)) {
@@ -83,7 +87,7 @@ public class APIManagerValidator {
             //TODO cross reference logic here
         }
 
-        //Parsable values
+        //Parsable values check
         if (configuration.containsKey("parsableValues")) {
             JSONArray parsableValues = (JSONArray) configuration.get("parsableValues");
             boolean validValue = false;

@@ -1,0 +1,437 @@
+{
+  "DataSourceName": {
+    "xpath": "//APIManager/DataSourceName/text()",
+    "default": "jdbc/WSO2AM_DB",
+    "mandatory": {
+      "gw" : "yes",
+      "km" : "yes",
+      "pub" : "no",
+      "store" : "tm"
+    },
+    "crossReference": {
+      "store": [
+        "api-manager.xml//APIManager/DataSourceName/text()",
+        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+      ],
+      "publisher": [
+        "api-manager.xml//APIManager/DataSourceName/text()",
+        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+      ],
+      "keyManager": [
+        "api-manager.xml//APIManager/DataSourceName/text()",
+        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+      ]
+    }
+  },
+  "GatewayType": {
+    "xpath": "//APIManager/DataSourceName/text()",
+    "default": "Synapse",
+    "parsableValues": [
+      "Synapse",
+      "None"
+    ]
+  },
+  "EnableSecureVault": {
+    "xpath": "//APIManager/DataSourceName/text()",
+    "default": "false",
+    "parsableValues": ["true", "false"]
+  },
+  "AuthManager": {
+    "options": {
+      "ServerURL": {
+        "default": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+        "regex": "",
+        "crossReference": {
+          "store": [
+            "api-manager.xml//APIManager/AuthManager/ServerURL/text()"
+          ],
+          "publisher": [
+            "api-manager.xml//APIManager/AuthManager/ServerURL/text()"
+          ]
+        }
+      },
+      "Username": "${admin.username}",
+      "Password": "${admin.password}",
+      "CheckPermissionsRemotely": "false"
+    }
+  },
+  "JWTConfiguration": {
+    "options": {
+      "JWTHeader": "X-JWT-Assertion",
+      "JWTGeneratorImpl": "org.wso2.carbon.apimgt.keymgt.token.JWTGenerator"
+    }
+  },
+  "APIGateway": {
+    "options": {
+      "Environments": {
+        "Environment": {
+          "-type": "hybrid",
+          "-api-console": "true",
+          "Name": "Production and Sandbox",
+          "Description": "This is a hybrid gateway that handles both production and sandbox token traffic.",
+          "ServerURL": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+          "Username": "${admin.username}",
+          "Password": "${admin.password}",
+          "GatewayEndpoint": "http://${carbon.local.ip}:${http.nio.port},https://${carbon.local.ip}:${https.nio.port}"
+        }
+      }
+    }
+  },
+  "CacheConfigurations": {
+    "options": {
+      "EnableGatewayTokenCache": "true",
+      "EnableGatewayResourceCache": "true",
+      "EnableKeyManagerTokenCache": "false",
+      "EnableRecentlyAddedAPICache": "false"
+    }
+  },
+  "Analytics": {
+    "options": {
+      "Enabled": "false",
+      "DASServerURL": "{tcp://localhost:7612}",
+      "DASUsername": "${admin.username}",
+      "DASPassword": "${admin.password}",
+      "StatsProviderImpl": "org.wso2.carbon.apimgt.usage.client.impl.APIUsageStatisticsRdbmsClientImpl",
+      "DASRestApiURL": "https://localhost:9444",
+      "DASRestApiUsername": "${admin.username}",
+      "DASRestApiPassword": "${admin.password}",
+      "SkipEventReceiverConnection": "false",
+      "PublisherClass": "org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher",
+      "PublishResponseMessageSize": "false",
+      "Streams": {
+        "Request": {
+          "Name": "org.wso2.apimgt.statistics.request",
+          "Version": "1.1.0"
+        },
+        "Response": {
+          "Name": "org.wso2.apimgt.statistics.response",
+          "Version": "1.1.0"
+        },
+        "Fault": {
+          "Name": "org.wso2.apimgt.statistics.fault",
+          "Version": "1.0.0"
+        },
+        "Throttle": {
+          "Name": "org.wso2.apimgt.statistics.throttle",
+          "Version": "1.0.0"
+        },
+        "Workflow": {
+          "Name": "org.wso2.apimgt.statistics.workflow",
+          "Version": "1.0.0"
+        },
+        "ExecutionTime": {
+          "Name": "org.wso2.apimgt.statistics.execution.time",
+          "Version": "1.0.0"
+        },
+        "AlertTypes": {
+          "Name": "org.wso2.analytics.apim.alertStakeholderInfo",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    "APIKeyValidator": {
+      "ServerURL": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+      "Username": "${admin.username}",
+      "Password": "${admin.password}",
+      "KeyValidatorClientType": "ThriftClient",
+      "ThriftClientConnectionTimeOut": "10000",
+      "EnableThriftServer": "true",
+      "ThriftServerHost": "localhost",
+      "KeyValidationHandlerClassName": "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"
+    },
+    "OAuthConfigurations": {
+      "ApplicationTokenScope": "am_application_scope",
+      "TokenEndPointName": "/oauth2/token",
+      "RevokeAPIURL": "https://localhost:${https.nio.port}/revoke",
+      "EncryptPersistedTokens": "false"
+    },
+    "TierManagement": {
+      "EnableUnlimitedTier": "true"
+    },
+    "APIStore": {
+      "CompareCaseInsensitively": "true",
+      "DisplayURL": "false",
+      "URL": "https://localhost:${mgt.transport.https.port}/store",
+      "ServerURL": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+      "Username": "${admin.username}",
+      "Password": "${admin.password}",
+      "DisplayMultipleVersions": "false",
+      "DisplayAllAPIs": "false",
+      "DisplayComments": "true",
+      "DisplayRatings": "true"
+    },
+    "APIPublisher": {
+      "DisplayURL": "false",
+      "URL": "https://localhost:${mgt.transport.https.port}/publisher"
+    },
+    "StartupAPIPublisher": {
+      "Enabled": "false",
+      "LocalAPIs": {
+        "LocalAPI": {
+          "Context": "/resource",
+          "Provider": "admin",
+          "Version": "1.0.0",
+          "IconPath": "none",
+          "DocumentURL": "none",
+          "AuthType": "Any"
+        }
+      }
+    },
+    "CORSConfiguration": {
+      "Enabled": "true",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      "Access-Control-Allow-Headers": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction",
+      "Access-Control-Allow-Credentials": "false"
+    },
+    "RESTAPI": {
+      "WhiteListedURIs": {
+        "WhiteListedURI": [
+          {
+            "URI": "/api/am/publisher/{version}/swagger.json",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/swagger.json",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/admin/{version}/swagger.json",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}/swagger",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}/documents",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}/documents/{documentId}",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}/documents/{documentId}/content",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}/thumbnail",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/tags",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/tiers/{tierLevel}",
+            "HTTPMethods": "GET,HEAD"
+          },
+          {
+            "URI": "/api/am/store/{version}/tiers/{tierLevel}/{tierName}",
+            "HTTPMethods": "GET,HEAD"
+          }
+        ]
+      },
+      "ETagSkipList": {
+        "ETagSkipURI": [
+          {
+            "URI": "/api/am/store/{version}/apis",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/generate-sdk",
+            "HTTPMethods": "POST"
+          },
+          {
+            "URI": "/api/am/store/{version}/apis/{apiId}/documents",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/store/{version}/applications",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/store/{version}/applications/generate-keys",
+            "HTTPMethods": "POST"
+          },
+          {
+            "URI": "/api/am/store/{version}/subscriptions",
+            "HTTPMethods": "GET,POST"
+          },
+          {
+            "URI": "/api/am/store/{version}/tags",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/store/{version}/tiers/{tierLevel}",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/store/{version}/tiers/{tierLevel}/{tierName}",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis",
+            "HTTPMethods": "GET,POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}",
+            "HTTPMethods": "GET,DELETE,PUT"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/swagger",
+            "HTTPMethods": "GET,PUT"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/thumbnail",
+            "HTTPMethods": "GET,POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/change-lifecycle",
+            "HTTPMethods": "POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/copy-api",
+            "HTTPMethods": "POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/applications/{applicationId}",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/documents",
+            "HTTPMethods": "GET,POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/documents/{documentId}/content",
+            "HTTPMethods": "GET,POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/apis/{apiId}/documents/{documentId}",
+            "HTTPMethods": "GET,PUT,DELETE"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/environments",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/subscriptions",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/subscriptions/block-subscription",
+            "HTTPMethods": "POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/subscriptions/{subscriptionId}",
+            "HTTPMethods": "GET"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/subscriptions/unblock-subscription",
+            "HTTPMethods": "POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/tiers/{tierLevel}",
+            "HTTPMethods": "GET,POST"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/tiers/{tierLevel}/{tierName}",
+            "HTTPMethods": "GET,PUT,DELETE"
+          },
+          {
+            "URI": "/api/am/publisher/{version}/tiers/update-permission",
+            "HTTPMethods": "POST"
+          }
+        ]
+      }
+    },
+    "ThrottlingConfigurations": {
+      "EnableAdvanceThrottling": "true",
+      "DataPublisher": {
+        "Enabled": "true",
+        "Type": "Binary",
+        "ReceiverUrlGroup": "tcp://${carbon.local.ip}:${receiver.url.port}",
+        "AuthUrlGroup": "ssl://${carbon.local.ip}:${auth.url.port}",
+        "Username": "${admin.username}",
+        "Password": "${admin.password}",
+        "DataPublisherPool": {
+          "MaxIdle": "1000",
+          "InitIdleCapacity": "200"
+        },
+        "DataPublisherThreadPool": {
+          "CorePoolSize": "200",
+          "MaxmimumPoolSize": "1000",
+          "KeepAliveTime": "200"
+        }
+      },
+      "PolicyDeployer": {
+        "ServiceURL": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+        "Username": "${admin.username}",
+        "Password": "${admin.password}"
+      },
+      "BlockCondition": {
+        "Enabled": "true"
+      },
+      "JMSConnectionDetails": {
+        "Enabled": "true",
+        "ServiceURL": "tcp://${carbon.local.ip}:${jms.port}",
+        "Username": "${admin.username}",
+        "Password": "${admin.password}",
+        "Destination": "throttleData",
+        "JMSConnectionParameters": {
+          "transport.jms.ConnectionFactoryJNDIName": "TopicConnectionFactory",
+          "transport.jms.DestinationType": "topic",
+          "java.naming.factory.initial": "org.wso2.andes.jndi.PropertiesFileInitialContextFactory",
+          "connectionfactory.TopicConnectionFactory": "amqp://${jms.username}:${jms.password}@clientid/carbon?brokerlist='${jms.url}'"
+        },
+        "JMSTaskManager": {
+          "MinThreadPoolSize": "20",
+          "MaxThreadPoolSize": "100",
+          "KeepAliveTimeInMillis": "1000",
+          "JobQueueSize": "10"
+        }
+      },
+      "JMSEventPublisherParameters": {
+        "java.naming.factory.initial": "org.wso2.andes.jndi.PropertiesFileInitialContextFactory",
+        "java.naming.provider.url": "repository/conf/jndi.properties",
+        "transport.jms.DestinationType": "topic",
+        "transport.jms.Destination": "throttleData",
+        "transport.jms.ConcurrentPublishers": "allow",
+        "transport.jms.ConnectionFactoryJNDIName": "TopicConnectionFactory"
+      },
+      "EnableUnlimitedTier": "true",
+      "EnableHeaderConditions": "false",
+      "EnableJWTClaimConditions": "false",
+      "EnableQueryParamConditions": "false"
+    },
+    "WorkflowConfigurations": {
+      "Enabled": "false",
+      "ServerUrl": "https://localhost:9445/bpmn",
+      "ServerUser": "${admin.username}",
+      "ServerPassword": "${admin.password}",
+      "WorkflowCallbackAPI": "https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.11/workflows/update-workflow-status",
+      "TokenEndPoint": "https://localhost:${https.nio.port}/token",
+      "DCREndPoint": "https://localhost:${mgt.transport.https.port}/client-registration/v0.11/register",
+      "DCREndPointUser": "${admin.username}",
+      "DCREndPointPassword": "${admin.password}"
+    },
+    "SwaggerCodegen": {
+      "ClientGeneration": {
+        "GroupId": "org.wso2",
+        "ArtifactId": "org.wso2.client.",
+        "ModelPackage": "org.wso2.client.model.",
+        "ApiPackage": "org.wso2.client.api.",
+        "SupportedLanguages": "java,android"
+      }
+    }
+  }
+}
