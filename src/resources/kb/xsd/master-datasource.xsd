@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <!-- XML Schema Generated from XML Document on Tue Dec 19 2017 13:54:43 GMT+0530 (+0530) -->
+    <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+    <xs:element name="datasources-configuration">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="providers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="provider" type="xs:string"></xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datasources">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="datasource" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string"></xs:element>
+                                        <xs:element name="description" type="xs:string"></xs:element>
+                                        <xs:element name="jndiConfig">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="name" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="definition">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="configuration">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="url" type="xs:string"></xs:element>
+                                                                <xs:element name="username" type="xs:string"></xs:element>
+                                                                <xs:element name="password" type="xs:string"></xs:element>
+                                                                <xs:element name="driverClassName" type="xs:string"></xs:element>
+                                                                <xs:element name="maxActive" type="xs:int"></xs:element>
+                                                                <xs:element name="maxWait" type="xs:int"></xs:element>
+                                                                <xs:element name="testOnBorrow" type="xs:string"></xs:element>
+                                                                <xs:element name="validationQuery" type="xs:string"></xs:element>
+                                                                <xs:element name="validationInterval" type="xs:int"></xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="type" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="xmlns:svns" type="xs:string"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

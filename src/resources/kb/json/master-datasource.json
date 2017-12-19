@@ -1,0 +1,89 @@
+{
+  "datasources-configuration": {
+    "-xmlns:svns": "http://org.wso2.securevault/configuration",
+    "providers": { "provider": "org.wso2.carbon.ndatasource.rdbms.RDBMSDataSourceReader" },
+    "datasources": {
+      "datasource": [
+        {
+          "name": "WSO2_CARBON_DB",
+          "description": "The datasource used for registry and user manager",
+          "jndiConfig": { "name": "jdbc/WSO2CarbonDB" },
+          "definition": {
+            "-type": "RDBMS",
+            "configuration": {
+              "url": "jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE",
+              "username": "wso2carbon",
+              "password": "wso2carbon",
+              "driverClassName": "org.h2.Driver",
+              "maxActive": "50",
+              "maxWait": "60000",
+              "testOnBorrow": "true",
+              "validationQuery": "SELECT 1",
+              "validationInterval": "30000"
+            }
+          }
+        },
+        {
+          "name": "WSO2AM_DB",
+          "description": "The datasource used for API Manager database",
+          "jndiConfig": { "name": "jdbc/WSO2AM_DB" },
+          "definition": {
+            "-type": "RDBMS",
+            "configuration": {
+              "url": "jdbc:h2:repository/database/WSO2AM_DB;DB_CLOSE_ON_EXIT=FALSE",
+              "username": "wso2carbon",
+              "password": "wso2carbon",
+              "defaultAutoCommit": "false",
+              "driverClassName": "org.h2.Driver",
+              "maxActive": "50",
+              "maxWait": "60000",
+              "testOnBorrow": "true",
+              "validationQuery": "SELECT 1",
+              "validationInterval": "30000"
+            }
+          }
+        },
+        {
+          "name": "WSO2AM_STATS_DB",
+          "description": "The datasource used for getting statistics to API Manager",
+          "jndiConfig": { "name": "jdbc/WSO2AM_STATS_DB" },
+          "definition": {
+            "-type": "RDBMS",
+            "configuration": {
+              "url": "jdbc:h2:../tmpStatDB/WSO2AM_STATS_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000;AUTO_SERVER=TRUE",
+              "username": "wso2carbon",
+              "password": "wso2carbon",
+              "defaultAutoCommit": "false",
+              "driverClassName": "org.h2.Driver",
+              "maxActive": "50",
+              "maxWait": "60000",
+              "testOnBorrow": "true",
+              "validationQuery": "SELECT 1",
+              "validationInterval": "30000"
+            }
+          }
+        },
+        {
+          "name": "WSO2_MB_STORE_DB",
+          "description": "The datasource used for message broker database",
+          "jndiConfig": { "name": "WSO2MBStoreDB" },
+          "definition": {
+            "-type": "RDBMS",
+            "configuration": {
+              "url": "jdbc:h2:repository/database/WSO2MB_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000",
+              "username": "wso2carbon",
+              "password": "wso2carbon",
+              "driverClassName": "org.h2.Driver",
+              "maxActive": "50",
+              "maxWait": "60000",
+              "testOnBorrow": "true",
+              "validationQuery": "SELECT 1",
+              "validationInterval": "30000",
+              "defaultAutoCommit": "false"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

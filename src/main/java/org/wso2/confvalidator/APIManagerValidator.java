@@ -108,7 +108,19 @@ public class APIManagerValidator {
         //Cross reference check
         if (configuration.containsKey("crossReference")) {
             JSONObject references = (JSONObject) configuration.get("crossReference");
-            doCrossReference(references, value);
+            Iterator<?> keySet = references.keySet().iterator();
+            //iterate through node names in cross references list
+            while (keySet.hasNext()) {
+                String key = (String) keySet.next();
+                if (references.get(key) instanceof JSONArray) {
+                    JSONArray referenceArray = (JSONArray) references.get(key);
+                    try {
+                        doCrossReference(key, referenceArray, value);
+                    } catch (XPathExpressionException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
 
         //Parsable values check
@@ -143,24 +155,24 @@ public class APIManagerValidator {
         }
     }
 
-    public static void doCrossReference(JSONObject references, String value){
-        Iterator<?> keySet = references.keySet().iterator();
-        while (keySet.hasNext()) {
-            String key = (String) keySet.next();
-            if (references.get(key) instanceof JSONArray) {
-
-                if("gw".equals(key)){
-
-                }else if("km".equals(key)){
-
-                }else if("pub".equals(key)){
-
-                }else if("store".equals(key)){
-
-                }else if("tm".equals(key)){
-
-                }else{
-                    log.error("Invalid node name on KB, Can not perform cross reference");
+    public static void doCrossReference(String node, JSONArray referenceArray, String value) throws XPathExpressionException{
+        if("currentNode".equals(node)){
+            node = currentNode;
+        }
+        //iterate through cross references array of a given node
+        for (int i = 0; i < referenceArray.size(); i++) {
+            //split file name and xpath defined in KB - "api-manager.xml //APIManager/DataSourceName/text()"
+            String[] fileAndXpath = referenceArray.get(i).toString().split("\\s+");
+            if(fileAndXpath.length != 2){
+                log.error("Error in KB : cross reference can only contain file name and xpath");
+                System.exit(1);
+            }
+            if (configs.containsKey(node) && configs.get(node).containsKey(fileAndXpath[0])) {
+                String remoteValue = xpathEvaluator.evaluateXpath(configs.get(node).get(fileAndXpath[0]), fileAndXpath[1], XPathConstants.STRING).toString();
+                if(value.equals(remoteValue)){
+                    log.info("Cross reference with " +node+ "'s " +fileAndXpath[0] + " - " + fileAndXpath[1] + " evaluated okay");
+                }else {
+                    log.error("Cross reference with " +node+ "'s " +fileAndXpath[0] + " - " + fileAndXpath[1] + " did not match");
                 }
             }
         }

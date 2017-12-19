@@ -10,11 +10,11 @@
     },
     "crossReference": {
       "store": [
-        "api-manager.xml//APIManager/DataSourceName/text()",
-        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+        "api-manager.xml //APIManager/DataSourceName/text()",
+        "master-datasources.xml //datasources-configuration/datasources/datasource/jndiConfig/name/text()"
       ],
       "currentNode": [
-        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
+        "master-datasources.xml //datasources-configuration/datasources/datasource/jndiConfig/name/text()"
       ]
     }
   },
