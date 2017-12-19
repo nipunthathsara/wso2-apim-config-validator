@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 /**
  * This class initiates the validation
  * Prompt to other classes for further validations
@@ -26,16 +29,19 @@ import java.util.Map;
  */
 public class ConfigValidator {
     private static Map<String, Map<String, Document>> configs = new HashMap();
-    private static Map<String, Map<String, JSONObject>> jsonKB;
+    private static Map<String, JSONObject> jsonKB;
     private static Map<String, Boolean> distribution;
     private static String currentNode;
+    final static Logger log = Logger.getLogger(ConfigValidator.class);
 
     public static void main(String[] args) {
+        PropertyConfigurator.configure("log4j.properties");
+
         //loads all the configurations from all available nodes. Access by: Node name >> Conf file name
         distribution = ConfigLoader.identifySetup();
         configs = ConfigLoader.loadConfigs(distribution);
 
-        //load Json KB for all nodes. Access by: Node name >> Conf file name
+        //load Json KB. Access by: Conf file name Ex: api-manager.xml
         JSONLoader jsonLoader = new JSONLoader();
         jsonKB = jsonLoader.loadJsons();
 
@@ -43,16 +49,16 @@ public class ConfigValidator {
         for(Map.Entry<String, Boolean> entry : distribution.entrySet()){
             if(entry.getValue()){
                 currentNode = entry.getKey();
+                log.info("Validating configurations of " + currentNode + " node...");
 
                 //validate current node's confs against xsd
                 for(Map.Entry<String, Document> configurationFile : configs.get(currentNode).entrySet()){
-                    validateXML(Constants.KB_ROOT + Constants.XSD_KB + Constants.XSD_PATH_MAP.get(configurationFile),
-                        Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(currentNode) + Constants.CONF_PATH_MAP.get(configurationFile));
+                    validateXML(Constants.KB_ROOT + Constants.XSD_KB + Constants.XSD_PATH_MAP.get(configurationFile.getKey()),
+                        Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(currentNode) + Constants.CONF_PATH_MAP.get(configurationFile.getKey()));
                 }
 
                 APIManagerValidator apiManagerValidator = new APIManagerValidator(configs, currentNode, jsonKB);
                 apiManagerValidator.iterator();
-
 
                 /**
                  * TODO call carbon xml validator, call masterDS validator etc.

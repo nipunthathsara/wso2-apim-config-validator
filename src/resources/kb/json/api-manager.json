@@ -1,24 +1,19 @@
 {
   "DataSourceName": {
-    "xpath" : "//APIManager/DataSourceName/text()",
+    "xpath": "//APIManager/DataSourceName/text()",
     "default": "jdbc/WSO2AM_DB",
     "mandatory": {
-      "gw" : "yes",
-      "km" : "yes",
-      "pub" : "no",
-      "store" : "tm"
+      "gw": "yes",
+      "km": "yes",
+      "pub": "no",
+      "store": "no"
     },
-    "crossReference" : {
-      "store" : [
+    "crossReference": {
+      "store": [
         "api-manager.xml//APIManager/DataSourceName/text()",
         "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
       ],
-      "publisher": [
-        "api-manager.xml//APIManager/DataSourceName/text()",
-        "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
-      ],
-      "keyManager": [
-        "api-manager.xml//APIManager/DataSourceName/text()",
+      "currentNode": [
         "master-datasources.xml//datasources-configuration/datasources/datasource/jndiConfig/name/text()"
       ]
     }

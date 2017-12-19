@@ -41,9 +41,9 @@ public class Constants {
     public static final String KB_ROOT = "/home/nipun/data/task/confvalidator/src/resources/kb";
     public static final String JSON_KB = "/json";
     public static final String XSD_KB = "/xsd";
-    public static final String API_MANAGER_XSD_PATH = "/xsd/api-manager.xsd";
-    public static final String CARBON_XSD_PATH = "/xsd/carbon.xsd";
-    public static final String USER_MGT_XSD_PATH = "/xsd/user-mgt.xsd";
+    public static final String API_MANAGER_XSD_PATH = "/api-manager.xsd";
+    public static final String CARBON_XSD_PATH = "/carbon.xsd";
+    public static final String USER_MGT_XSD_PATH = "/user-mgt.xsd";
     public static final String[] XSD_PATH_ARRAY = {API_MANAGER_XSD_PATH, CARBON_XSD_PATH, USER_MGT_XSD_PATH};
     public static final Map<String, String> XSD_PATH_MAP = new HashMap();
 

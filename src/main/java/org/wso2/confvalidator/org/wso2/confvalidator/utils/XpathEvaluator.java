@@ -11,15 +11,11 @@ import javax.xml.xpath.XPathFactory;
  * Created by nipun on Dec, 2017
  */
 public class XpathEvaluator {
-    XPath xPath =  XPathFactory.newInstance().newXPath();
+    XPath xPath = XPathFactory.newInstance().newXPath();
 
-    public Object evaluateXpath (Document doc, String xpath, QName returnType){
+    public Object evaluateXpath(Document doc, String xpath, QName returnType) throws XPathExpressionException{
         String result = null;
-        try {
-            result = (String) xPath.compile(xpath).evaluate(doc, returnType);
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
+        result = (String) xPath.compile(xpath).evaluate(doc, returnType);
         return result;
     }
 }

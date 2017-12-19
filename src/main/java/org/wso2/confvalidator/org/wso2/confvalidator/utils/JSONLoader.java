@@ -36,22 +36,16 @@ public class JSONLoader {
     }
 
     /**
-     * Loads all Jsons from knowledge base
-     * for every node
+     * Loads JSON Knowledge Base
      * @return
      */
-    public Map<String, Map<String, JSONObject>> loadJsons(){
-        Map<String, Map<String, JSONObject>> jasonKB = new HashMap();
+    public Map<String, JSONObject> loadJsons(){
+        Map<String, JSONObject> jsonKB = new HashMap();
         JSONObject jsonObject = null;
-        for (int i = 0; i < Constants.NODE_NAME_ARRAY.length; i++) {
-            Map<String, JSONObject> nodeKb = new HashMap();
-            for(Map.Entry<String, String> entry : Constants.JSON_PATH_MAP.entrySet()){
-                jsonObject = this.readJson(Constants.KB_ROOT + Constants.JSON_KB +
-                        Constants.NODE_PATH_MAP.get(Constants.NODE_NAME_ARRAY[i]) + entry.getValue());
-                nodeKb.put(entry.getKey(), jsonObject);
-            }
-            jasonKB.put(Constants.NODE_NAME_ARRAY[i], nodeKb);
+        for(Map.Entry<String, String> entry : Constants.JSON_PATH_MAP.entrySet()){
+            jsonObject = this.readJson(Constants.KB_ROOT + Constants.JSON_KB + entry.getValue());
+            jsonKB.put(entry.getKey(), jsonObject);
         }
-        return jasonKB;
+        return jsonKB;
     }
 }
