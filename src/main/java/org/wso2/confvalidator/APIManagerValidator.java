@@ -4,8 +4,9 @@ import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.Node;
 import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
 
 import javax.xml.xpath.XPathConstants;
@@ -126,13 +127,18 @@ public class APIManagerValidator {
         //Parsable values check
         if (configuration.containsKey("parsableValues")) {
             JSONArray parsableValues = (JSONArray) configuration.get("parsableValues");
+            boolean acceptableValue = false;
             for (int i = 0; i < parsableValues.size(); i++) {
                 if (value.equals(parsableValues.get(i))) {
-                    log.info(xpath + " is an acceptable value");
+                    acceptableValue = true;
                     break;
                 }
             }
-            log.error("Not an acceptable value : " + xpath);
+            if(acceptableValue){
+                log.info(xpath + " is assigned an acceptable value");
+            }else{
+                log.error(xpath + " is not assigned an acceptable value");
+            }
         }
     }
 
@@ -144,6 +150,8 @@ public class APIManagerValidator {
                 String value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(Constants.API_MANAGER_XML), xpath, XPathConstants.STRING).toString();
                 if ("".equals(value)) {
                     log.error("Mandatory configuration : " + xpath + " is not defined");
+                }else {
+                    log.info("Mandatory configuration : " + xpath + " is not empty");
                 }
             } catch (XPathExpressionException e) {
                 //Assumption: xml is commented out
@@ -167,12 +175,21 @@ public class APIManagerValidator {
                 log.error("Error in KB : cross reference can only contain file name and xpath");
                 System.exit(1);
             }
+
             if (configs.containsKey(node) && configs.get(node).containsKey(fileAndXpath[0])) {
-                String remoteValue = xpathEvaluator.evaluateXpath(configs.get(node).get(fileAndXpath[0]), fileAndXpath[1], XPathConstants.STRING).toString();
-                if(value.equals(remoteValue)){
-                    log.info("Cross reference with " +node+ "'s " +fileAndXpath[0] + " - " + fileAndXpath[1] + " evaluated okay");
-                }else {
-                    log.error("Cross reference with " +node+ "'s " +fileAndXpath[0] + " - " + fileAndXpath[1] + " did not match");
+                //Check in all occurrences of xpath
+                NodeList remoteValues = (NodeList) xpathEvaluator.evaluateXpath(configs.get(node).get(fileAndXpath[0]), fileAndXpath[1], XPathConstants.NODESET);
+                boolean match = false;
+                for (int j = 0; j < remoteValues.getLength(); j++) {
+                    String remoteValue = remoteValues.item(j).getNodeValue();
+                    if (value.equals(remoteValue)) {
+                        match = true;
+                    }
+                }
+                if(match){
+                    log.info("Cross reference with " + node + "'s " + fileAndXpath[0] + " - " + fileAndXpath[1] + " evaluated okay");
+                }else{
+                    log.error("Cross reference with " + node + "'s " + fileAndXpath[0] + " - " + fileAndXpath[1] + " did not match");
                 }
             }
         }

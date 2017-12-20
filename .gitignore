@@ -26,7 +26,6 @@ hs_err_pid*
 /.idea
 /target
 confvalidator.iml
-/src/resources/conf/
 
 # Ignore conf directories
 /configurations/gw/conf
@@ -35,4 +34,4 @@ confvalidator.iml
 /configurations/store/conf
 /configurations/tm/conf
 
-
+log.out

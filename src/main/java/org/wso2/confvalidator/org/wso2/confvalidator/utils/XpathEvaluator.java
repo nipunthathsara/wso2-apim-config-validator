@@ -14,8 +14,6 @@ public class XpathEvaluator {
     XPath xPath = XPathFactory.newInstance().newXPath();
 
     public Object evaluateXpath(Document doc, String xpath, QName returnType) throws XPathExpressionException{
-        String result = null;
-        result = (String) xPath.compile(xpath).evaluate(doc, returnType);
-        return result;
+        return xPath.compile(xpath).evaluate(doc, returnType);
     }
 }

@@ -18,7 +18,17 @@
       ]
     }
   },
-  "GatewayType": "Synapse",
+  "GatewayType": {
+    "mandatory" : {
+      "gw": "yes",
+      "km": "yes",
+      "pub": "no",
+      "store": "no"
+    },
+    "xpath" : "/APIManager/GatewayType",
+    "default" : "Synapse",
+    "parsableValues" : ["Synapse", "None"]
+  },
   "EnableSecureVault": "false",
   "AuthManager": {
     "ServerURL": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",

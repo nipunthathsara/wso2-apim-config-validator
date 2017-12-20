@@ -1,5 +1,4 @@
 {
-  "Server": {
     "-xmlns": "http://wso2.org/projects/carbon/carbon.xml",
     "Name": "WSO2 API Manager",
     "ServerKey": "AM",
@@ -175,5 +174,4 @@
       "Enabled": "true",
       "LoadAPIContextsInServerStartup": "true"
     }
-  }
 }

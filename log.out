@@ -227,3 +227,178 @@ xxxx
 2017-12-19 14:20:56 INFO  APIManagerValidator:80 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
 2017-12-19 14:20:56 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
 2017-12-19 14:20:58 ERROR APIManagerValidator:175 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-19 14:37:58 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-19 14:37:58 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-19 14:37:58 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-19 14:37:58 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-19 14:38:03 ERROR APIManagerValidator:175 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-19 14:38:03 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-19 14:38:55 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-19 14:38:55 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-19 14:38:55 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-19 14:39:55 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-19 14:48:22 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-19 14:48:22 INFO  APIManagerValidator:32 - Validating API-Manager.xml...
+2017-12-19 14:48:22 INFO  APIManagerValidator:79 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-19 14:48:22 INFO  APIManagerValidator:147 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-19 14:48:22 INFO  APIManagerValidator:100 - //APIManager/DataSourceName/text() is using default value
+2017-12-19 14:51:05 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-19 14:51:05 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-19 14:51:05 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-19 14:51:05 INFO  APIManagerValidator:148 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-19 14:51:05 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-19 14:53:15 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-19 14:53:15 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-19 14:53:15 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-19 14:53:15 INFO  APIManagerValidator:148 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-19 14:53:15 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-19 14:53:31 ERROR APIManagerValidator:178 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-19 14:53:31 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-19 14:53:50 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-19 14:53:50 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-19 14:53:50 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-19 14:53:50 INFO  APIManagerValidator:148 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-19 14:53:50 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 10:41:06 ERROR APIManagerValidator:177 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 10:41:06 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 10:49:05 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 10:49:05 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-20 10:49:05 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 10:49:05 INFO  APIManagerValidator:148 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 10:49:05 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 10:49:28 ERROR APIManagerValidator:177 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 10:49:28 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 10:50:57 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 10:50:57 INFO  APIManagerValidator:33 - Validating API-Manager.xml...
+2017-12-20 10:50:57 INFO  APIManagerValidator:80 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 10:50:58 INFO  APIManagerValidator:148 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 10:50:58 INFO  APIManagerValidator:101 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 10:59:28 ERROR APIManagerValidator:178 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 10:59:28 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 10:59:53 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 10:59:53 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 10:59:53 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 10:59:53 INFO  APIManagerValidator:149 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 10:59:53 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:01:21 ERROR APIManagerValidator:182 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:01:21 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:01:21 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:01:21 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:01:21 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:01:21 ERROR APIManagerValidator:182 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:04:34 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:04:34 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:04:34 INFO  APIManagerValidator:149 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:04:34 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:04:34 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:04:34 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:04:34 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:04:34 ERROR APIManagerValidator:182 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:12 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:05:13 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:05:13 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:05:13 INFO  APIManagerValidator:149 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:05:13 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:05:13 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:05:13 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:05:13 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:13 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:37 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:05:37 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:05:37 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:05:37 INFO  APIManagerValidator:149 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:05:37 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:05:37 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:37 INFO  APIManagerValidator:181 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:05:37 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:37 ERROR APIManagerValidator:183 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:37 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:05:37 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:05:37 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:05:37 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:05:37 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:37 INFO  APIManagerValidator:181 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:05:37 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:05:37 ERROR APIManagerValidator:183 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() did not match
+2017-12-20 11:10:10 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:10:10 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:10:10 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:10:10 INFO  APIManagerValidator:149 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:10:10 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:10:10 INFO  APIManagerValidator:185 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:10:10 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:10:10 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:10:10 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:10:10 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:10:10 INFO  APIManagerValidator:185 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:29:54 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:29:54 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:29:54 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : /APIManager/GatewayType
+2017-12-20 11:29:54 INFO  APIManagerValidator:102 - /APIManager/GatewayType is using default value
+2017-12-20 11:29:54 INFO  APIManagerValidator:132 - /APIManager/GatewayType is an acceptable value
+2017-12-20 11:29:54 ERROR APIManagerValidator:136 - Not an acceptable value : /APIManager/GatewayType
+2017-12-20 11:29:54 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:29:54 INFO  APIManagerValidator:149 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:29:54 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:29:54 INFO  APIManagerValidator:185 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:29:54 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:29:54 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:29:54 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : /APIManager/GatewayType
+2017-12-20 11:29:54 INFO  APIManagerValidator:102 - /APIManager/GatewayType is using default value
+2017-12-20 11:29:54 INFO  APIManagerValidator:132 - /APIManager/GatewayType is an acceptable value
+2017-12-20 11:29:54 ERROR APIManagerValidator:136 - Not an acceptable value : /APIManager/GatewayType
+2017-12-20 11:29:54 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:29:54 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:29:54 INFO  APIManagerValidator:185 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:35:27 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:35:27 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:35:27 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : /APIManager/GatewayType
+2017-12-20 11:35:28 INFO  APIManagerValidator:102 - /APIManager/GatewayType is using default value
+2017-12-20 11:35:28 INFO  APIManagerValidator:138 - /APIManager/GatewayTypeis using an acceptable value
+2017-12-20 11:35:28 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:35:28 INFO  APIManagerValidator:154 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:35:28 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:35:28 INFO  APIManagerValidator:190 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:35:28 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:35:28 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:35:28 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : /APIManager/GatewayType
+2017-12-20 11:35:28 INFO  APIManagerValidator:102 - /APIManager/GatewayType is using default value
+2017-12-20 11:35:28 INFO  APIManagerValidator:138 - /APIManager/GatewayTypeis using an acceptable value
+2017-12-20 11:35:28 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:35:28 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:35:28 INFO  APIManagerValidator:190 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:37:47 INFO  ConfigValidator:52 - Validating configurations of gw node...
+2017-12-20 11:37:47 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:37:47 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : /APIManager/GatewayType
+2017-12-20 11:37:47 INFO  APIManagerValidator:154 - Mandatory configuration : /APIManager/GatewayType is not empty
+2017-12-20 11:37:47 INFO  APIManagerValidator:102 - /APIManager/GatewayType is using default value
+2017-12-20 11:37:47 INFO  APIManagerValidator:138 - /APIManager/GatewayType is assigned an acceptable value
+2017-12-20 11:37:47 INFO  APIManagerValidator:81 - Node : gw File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:37:47 INFO  APIManagerValidator:154 - Mandatory configuration : //APIManager/DataSourceName/text() is not empty
+2017-12-20 11:37:47 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:37:47 INFO  APIManagerValidator:190 - Cross reference with gw's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
+2017-12-20 11:37:47 INFO  ConfigValidator:52 - Validating configurations of pub node...
+2017-12-20 11:37:47 INFO  APIManagerValidator:34 - Validating API-Manager.xml...
+2017-12-20 11:37:47 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : /APIManager/GatewayType
+2017-12-20 11:37:47 INFO  APIManagerValidator:102 - /APIManager/GatewayType is using default value
+2017-12-20 11:37:47 INFO  APIManagerValidator:138 - /APIManager/GatewayType is assigned an acceptable value
+2017-12-20 11:37:47 INFO  APIManagerValidator:81 - Node : pub File : API-Manager.xml Configuration : //APIManager/DataSourceName/text()
+2017-12-20 11:37:47 INFO  APIManagerValidator:102 - //APIManager/DataSourceName/text() is using default value
+2017-12-20 11:37:47 INFO  APIManagerValidator:190 - Cross reference with pub's master-datasources.xml - //datasources-configuration/datasources/datasource/jndiConfig/name/text() evaluated okay
