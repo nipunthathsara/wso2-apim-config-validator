@@ -23,7 +23,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 /**
  * This class initiates the validation
- * Prompt to other classes for further validations
+ * Prompts to other classes for further validations
  *
  * Created by nipun on Dec, 2017
  */
@@ -59,6 +59,11 @@ public class ConfigValidator {
 
                 APIManagerValidator apiManagerValidator = new APIManagerValidator(configs, currentNode, jsonKB);
                 apiManagerValidator.iterator();
+
+                CarbonValidator carbonValidator = new CarbonValidator(configs, currentNode, jsonKB);
+                carbonValidator.iterator();
+
+
 
                 /**
                  * TODO call carbon xml validator, call masterDS validator etc.

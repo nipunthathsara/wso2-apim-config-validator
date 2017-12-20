@@ -2,7 +2,10 @@
     "-xmlns": "http://wso2.org/projects/carbon/carbon.xml",
     "Name": "WSO2 API Manager",
     "ServerKey": "AM",
-    "Version": "2.1.0",
+    "Version": {
+      "xpath" : "//Server/Version/text()",
+      "default" : "2.1.0"
+    },
     "ServerURL": "local:/${carbon.context}/services/",
     "ServerRoles": { "Role": "APIManager" },
     "Package": "org.wso2.carbon",
