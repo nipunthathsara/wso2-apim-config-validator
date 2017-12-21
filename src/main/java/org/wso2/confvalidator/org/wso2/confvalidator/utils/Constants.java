@@ -45,14 +45,14 @@ public class Constants {
     public static final String API_MANAGER_XSD_PATH = "/api-manager.xsd";
     public static final String CARBON_XSD_PATH = "/carbon.xsd";
     public static final String USER_MGT_XSD_PATH = "/user-mgt.xsd";
-    public static final String MASTER_DATASOURCE_XSD_PATH = "/master-datasources.xsd";
+    public static final String MASTER_DATASOURCE_XSD_PATH = "/master-datasource.xsd";
     public static final String[] XSD_PATH_ARRAY = {API_MANAGER_XSD_PATH, CARBON_XSD_PATH, USER_MGT_XSD_PATH, MASTER_DATASOURCE_XSD_PATH};
     public static final Map<String, String> XSD_PATH_MAP = new HashMap();
 
     public static final String API_MANAGER_JSON_PATH = "/api-manager.json";
     public static final String CARBON_JSON_PATH = "/carbon.json";
     public static final String USER_MGT_JSON_PATH = "/user-mgt.json";
-    public static final String MASTER_DATASOURCE_JSON_PATH = "/master-datasources.xml";
+    public static final String MASTER_DATASOURCE_JSON_PATH = "/master-datasource.json";
     public static final String[] JSON_PATH_ARRAY = {API_MANAGER_JSON_PATH, CARBON_JSON_PATH, USER_MGT_JSON_PATH, MASTER_DATASOURCE_JSON_PATH};
     public static final Map<String, String> JSON_PATH_MAP = new HashMap();
 
@@ -66,4 +66,13 @@ public class Constants {
             XSD_PATH_MAP.put(CONF_NAME_ARRAY[i], XSD_PATH_ARRAY[i]);
         }
     }
+
+    public static final String SUB_CONFIGURATIONS = "subConfigurations";
+    public static final String MANDATORY = "mandatory";
+    public static final String DEFAULT = "default";
+    public static final String CROSS_REFERENCE = "crossReference";
+    public static final String XPATH = "xpath";
+    public static final String PASSABLE_VALUES = "parsableValues";
+    public static final String REGEX = "regex";
+
 }

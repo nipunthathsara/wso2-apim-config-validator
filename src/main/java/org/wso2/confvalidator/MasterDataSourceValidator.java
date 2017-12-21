@@ -18,7 +18,7 @@ public class MasterDataSourceValidator extends Validator{
         this.jsonKB = jsonKB;
         this.xpathEvaluator = new XpathEvaluator();
         configFileName = Constants.MASTER_DATASOURCE_XML;
-        log = Logger.getLogger(CarbonValidator.class);
+        log = Logger.getLogger(MasterDataSourceValidator.class);
         log.info("Validating Master-dataource.xml on " + currentNode + " Node...");
     }
 

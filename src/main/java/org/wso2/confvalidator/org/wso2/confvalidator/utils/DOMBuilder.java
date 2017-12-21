@@ -19,36 +19,14 @@ public class DOMBuilder {
     DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
     DocumentBuilder documentBuilder;
     Document document;
-    Map<String, Document> configs = new HashMap();
 
     /**
-     * Return DOMs for all defined configuration files
-     * in conf directory
-     *
+     * Returns all configuration files for a given node
+     * @param profile
      * @return
      */
-    public Map<String, Document> loadFiles() {
-
-        for (int i = 0; i < Constants.CONF_PATH_ARRAY.length; i++) {
-            String filePath = Constants.CONF_ROOT + Constants.CONF_PATH_ARRAY[i];
-            File configFile = new File(filePath);
-            try {
-                this.documentBuilder = this.documentBuilderFactory.newDocumentBuilder();
-                document = documentBuilder.parse(configFile);
-                document.getDocumentElement().normalize();
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (SAXException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            configs.put(Constants.CONF_NAME_ARRAY[i], document);
-        }
-        return configs;
-    }
-
     public Map<String, Document> loadFiles(String profile) {
+        Map<String, Document> configs = new HashMap();
 
         for (int i = 0; i < Constants.CONF_PATH_ARRAY.length; i++) {
             String filePath = Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(profile) + Constants.CONF_PATH_ARRAY[i];

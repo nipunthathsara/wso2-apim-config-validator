@@ -39,11 +39,12 @@ public class ConfigLoader {
     public static Map<String, Map<String, Document>> loadConfigs(Map<String, Boolean> distribution){
         //Configuration files for each node
         Map<String, Map<String, Document>> configs = new HashMap();
+        Map<String, Document> nodeConfig = null;
         domBuilder = new DOMBuilder();
         for (Map.Entry<String, Boolean> entry : distribution.entrySet()){
             if(entry.getValue()){
                 //load node specific configuration file set
-                Map<String, Document> nodeConfig = domBuilder.loadFiles(entry.getKey());
+                nodeConfig = domBuilder.loadFiles(entry.getKey());
                 configs.put(entry.getKey(), nodeConfig);
             }
         }

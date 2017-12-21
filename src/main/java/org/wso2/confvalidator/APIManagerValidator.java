@@ -25,7 +25,7 @@ public class APIManagerValidator extends Validator{
         this.jsonKB = jsonKB;
         this.xpathEvaluator = new XpathEvaluator();
         configFileName = Constants.API_MANAGER_XML;
-        log = Logger.getLogger(CarbonValidator.class);
+        log = Logger.getLogger(APIManagerValidator.class);
         log.info("Validating API-Manager.xml on " + currentNode + " Node...");
     }
 

@@ -63,11 +63,8 @@ public class ConfigValidator {
                 CarbonValidator carbonValidator = new CarbonValidator(configs, currentNode, jsonKB);
                 carbonValidator.iterator();
 
-
-
-                /**
-                 * TODO call carbon xml validator, call masterDS validator etc.
-                 */
+                MasterDataSourceValidator masterDataSourceValidator = new MasterDataSourceValidator(configs, currentNode, jsonKB);
+                masterDataSourceValidator.iterator();
             }
         }
     }

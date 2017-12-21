@@ -5,8 +5,9 @@
     "mandatory": {
       "gw": "yes",
       "km": "yes",
-      "pub": "no",
-      "store": "no"
+      "pub": "yes",
+      "store": "no",
+      "tm" : "yes"
     },
     "crossReference": {
       "store": [

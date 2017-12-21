@@ -22,6 +22,7 @@ public class Validator {
     protected static XpathEvaluator xpathEvaluator;
     protected static Logger log;
     protected static String configFileName;
+
     /**
      * Method to iterate configurations in configFileName
      * pass name of the relevant JSON configFileName
@@ -61,9 +62,9 @@ public class Validator {
         String value = null;
         String xpath;
 
-        //Does it contain sub attributes? If so, iterate again
-        if (configuration.containsKey("options")) {
-            iterator((JSONObject) configuration.get("options"));
+        //Does it contain sub configurations? If so, iterate again
+        if (configuration.containsKey("subConfigurations")) {
+            iterator((JSONObject) configuration.get("subConfigurations"));
             return;
         }
 
@@ -131,6 +132,16 @@ public class Validator {
                 log.info(xpath + " is assigned an acceptable value");
             }else{
                 log.error(xpath + " is not assigned an acceptable value");
+            }
+        }
+
+        //Regex validation
+        if(configuration.containsKey("regex")){
+            boolean match = value.matches(configuration.get("regex").toString());
+            if(match){
+                log.info(xpath + " validation against regex is fine");
+            }else{
+                log.error(xpath + " validation against regex failed");
             }
         }
     }
