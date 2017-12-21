@@ -6,36 +6,43 @@
       "gw": "yes",
       "km": "yes",
       "pub": "yes",
-      "store": "no",
-      "tm" : "yes"
+      "store": "yes",
+      "tm": "yes"
     },
     "crossReference": {
-      "store": [
-        "api-manager.xml //APIManager/DataSourceName/text()",
-        "master-datasources.xml //datasources-configuration/datasources/datasource/jndiConfig/name/text()"
-      ],
       "currentNode": [
         "master-datasources.xml //datasources-configuration/datasources/datasource/jndiConfig/name/text()"
       ]
     }
   },
   "GatewayType": {
-    "mandatory" : {
+    "mandatory": {
       "gw": "yes",
       "km": "yes",
       "pub": "no",
-      "store": "no"
+      "store": "no",
+      "tm": "yes"
     },
-    "xpath" : "//APIManager/GatewayType/text()",
-    "default" : "Synapse",
-    "parsableValues" : ["Synapse", "None"]
+    "xpath": "//APIManager/GatewayType/text()",
+    "default": "Synapse",
+    "parsableValues": [
+      "Synapse",
+      "None"
+    ]
   },
   "EnableSecureVault": "false",
   "AuthManager": {
-    "ServerURL": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
-    "Username": "${admin.username}",
-    "Password": "${admin.password}",
-    "CheckPermissionsRemotely": "false"
+    "subConfigurations": {
+      "ServerURL": {
+        "default" : "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+        "xpath" : "//APIManager/AuthManager/ServerURL/text()",
+        "regex" : "",
+        "mandatory" : {"pub": "no", "store": "no"}
+      },
+      "Username": "${admin.username}",
+      "Password": "${admin.password}",
+      "CheckPermissionsRemotely": "false"
+    }
   },
   "JWTConfiguration": {
     "EnableJWTGeneration": "false",

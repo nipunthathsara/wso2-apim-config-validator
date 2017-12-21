@@ -44,12 +44,12 @@ public class Validator {
      * @param subConfigurations
      */
     public void iterator(JSONObject subConfigurations) {
-        JSONObject configKB = jsonKB.get(configFileName);
-        Iterator<?> keySet = configKB.keySet().iterator();
+        //JSONObject configKB = jsonKB.get(configFileName);
+        Iterator<?> keySet = subConfigurations.keySet().iterator();
         while (keySet.hasNext()) {
             String key = (String) keySet.next();
-            if (configKB.get(key) instanceof JSONObject) {
-                validateCommonConfigs((JSONObject) configKB.get(key));
+            if (subConfigurations.get(key) instanceof JSONObject) {
+                validateCommonConfigs((JSONObject) subConfigurations.get(key));
             }
         }
     }
