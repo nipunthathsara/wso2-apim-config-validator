@@ -2,9 +2,11 @@ package org.wso2.confvalidator;
 
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.ConfigLoader;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.JSONLoader;
+import org.wso2.confvalidator.utils.ConfigLoader;
+import org.wso2.confvalidator.utils.JSONLoader;
+import org.wso2.confvalidator.validators.APIManagerValidator;
+import org.wso2.confvalidator.validators.CarbonValidator;
+import org.wso2.confvalidator.validators.MasterDataSourceValidator;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
@@ -39,6 +41,7 @@ public class ConfigValidator {
 
         //loads all the configurations from all available nodes. Access by: Node name >> Conf file name
         distribution = ConfigLoader.identifySetup();
+        //ConfigLoader.getNodeURLs(distribution);
         configs = ConfigLoader.loadConfigs(distribution);
 
         //load Json KB. Access by: Conf file name Ex: api-manager.xml
@@ -49,12 +52,12 @@ public class ConfigValidator {
         for(Map.Entry<String, Boolean> entry : distribution.entrySet()){
             if(entry.getValue()){
                 currentNode = entry.getKey();
-                log.info("Validating configurations of " + currentNode + " node...");
+                log.info("****************" + " Validating " + currentNode + " Node " + "****************");
 
                 //validate current node's confs against xsd
                 for(Map.Entry<String, Document> configurationFile : configs.get(currentNode).entrySet()){
-                    validateXML(Constants.KB_ROOT + Constants.XSD_KB + Constants.XSD_PATH_MAP.get(configurationFile.getKey()),
-                        Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(currentNode) + Constants.CONF_PATH_MAP.get(configurationFile.getKey()));
+//                    validateXML(Constants.KB_ROOT + Constants.XSD_KB + Constants.XSD_PATH_MAP.get(configurationFile.getKey()),
+//                        Constants.CONF_ROOT + Constants.NODE_PATH_MAP.get(currentNode) + Constants.CONF_PATH_MAP.get(configurationFile.getKey()));
                 }
 
                 APIManagerValidator apiManagerValidator = new APIManagerValidator(configs, currentNode, jsonKB);

@@ -1,10 +1,10 @@
-package org.wso2.confvalidator;
+package org.wso2.confvalidator.validators;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
+import org.wso2.confvalidator.utils.Constants;
+import org.wso2.confvalidator.utils.XpathEvaluator;
 
 import java.util.Map;
 
@@ -20,7 +20,7 @@ public class CarbonValidator extends Validator {
         this.xpathEvaluator = new XpathEvaluator();
         configFileName = Constants.CARBON_XML;
         log = Logger.getLogger(CarbonValidator.class);
-        log.info("Validating Carbon.xml on " + currentNode + " Node...");
+        log.info("Validating " + configFileName);
     }
 
     //TODO

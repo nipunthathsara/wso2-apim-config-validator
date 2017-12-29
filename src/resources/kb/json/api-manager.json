@@ -2,35 +2,23 @@
   "DataSourceName": {
     "xpath": "//APIManager/DataSourceName/text()",
     "default": "jdbc/WSO2AM_DB",
-    "mandatory": {
-      "gw": "yes",
-      "km": "yes",
-      "pub": "yes",
-      "store": "yes",
-      "tm": "yes"
-    },
+    "mandatory": {"gw": "yes", "km": "yes", "pub": "yes", "store": "yes", "tm": "yes"},
     "crossReference": {
-      "currentNode": [
-        "master-datasources.xml //datasources-configuration/datasources/datasource/jndiConfig/name/text()"
-      ]
+      "currentNode": ["master-datasources.xml //datasources-configuration/datasources/datasource/jndiConfig/name/text()"]
     }
   },
   "GatewayType": {
-    "mandatory": {
-      "gw": "yes",
-      "km": "yes",
-      "pub": "no",
-      "store": "no",
-      "tm": "yes"
-    },
+    "mandatory": {"gw": "yes", "km": "yes", "pub": "no", "store": "no", "tm": "yes"},
     "xpath": "//APIManager/GatewayType/text()",
     "default": "Synapse",
-    "parsableValues": [
-      "Synapse",
-      "None"
-    ]
+    "parsableValues": ["Synapse", "None"]
   },
-  "EnableSecureVault": "false",
+  "EnableSecureVault": {
+    "default" : "false",
+    "parsableValues" : ["true", "false"],
+    "mandatory" : {"pub" : "true"},
+    "xpath" : "//APIManager/EnableSecureVault/text()"
+  },
   "AuthManager": {
     "subConfigurations": {
       "ServerURL": {
@@ -39,22 +27,37 @@
         "regex" : "",
         "mandatory" : {"pub": "no", "store": "no"}
       },
-      "Username": "${admin.username}",
-      "Password": "${admin.password}",
-      "CheckPermissionsRemotely": "false"
+      "Username": {
+        "xpath" : "//APIManager/AuthManager/Username/text()",
+        "default" : "${admin.username}",
+        "mandatory" : {"pub" : "yes", "store" : "yes"}
+      },
+      "Password": {
+        "xpath" : "//APIManager/AuthManager/Password/text()",
+        "default" : "${admin.password}",
+        "mandatory" : {"pub" : "yes", "store" : "yes"}
+      },
+      "CheckPermissionsRemotely": {
+        "xpath" : "//APIManager/AuthManager/CheckPermissionsRemotely/text()",
+        "default" : "false",
+        "parsableValues" : ["true", "false"],
+        "mandatory" : {"pub" : "yes", "store" : "yes"}
+      }
     }
   },
   "JWTConfiguration": {
-    "EnableJWTGeneration": "false",
-    "JWTHeader": "X-JWT-Assertion",
-    "ClaimsRetrieverImplClass": "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever",
-    "ConsumerDialectURI": "http://wso2.org/claims",
-    "SignatureAlgorithm": "SHA256withRSA",
-    "JWTGeneratorImpl": [
-      "org.wso2.carbon.apimgt.keymgt.token.JWTGenerator",
-      "org.wso2.carbon.apimgt.keymgt.token.URLSafeJWTGenerator"
-    ],
-    "RemoveUserNameFromJWTForApplicationToken": "true"
+    "subConfigurations" : {
+      "EnableJWTGeneration": "false",
+      "JWTHeader": "X-JWT-Assertion",
+      "ClaimsRetrieverImplClass": "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever",
+      "ConsumerDialectURI": "http://wso2.org/claims",
+      "SignatureAlgorithm": "SHA256withRSA",
+      "JWTGeneratorImpl": [
+        "org.wso2.carbon.apimgt.keymgt.token.JWTGenerator",
+        "org.wso2.carbon.apimgt.keymgt.token.URLSafeJWTGenerator"
+      ],
+      "RemoveUserNameFromJWTForApplicationToken": "true"
+    }
   },
   "LoginConfig": {
     "UserIdLogin": {

@@ -1,16 +1,11 @@
-package org.wso2.confvalidator;
+package org.wso2.confvalidator.validators;
 
 import org.apache.log4j.Logger;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
+import org.wso2.confvalidator.utils.Constants;
+import org.wso2.confvalidator.utils.XpathEvaluator;
 
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpressionException;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -26,7 +21,7 @@ public class APIManagerValidator extends Validator{
         this.xpathEvaluator = new XpathEvaluator();
         configFileName = Constants.API_MANAGER_XML;
         log = Logger.getLogger(APIManagerValidator.class);
-        log.info("Validating API-Manager.xml on " + currentNode + " Node...");
+        log.info("Validating " + configFileName);
     }
 
     //TODO

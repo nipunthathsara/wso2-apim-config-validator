@@ -1,4 +1,4 @@
-package org.wso2.confvalidator.org.wso2.confvalidator.utils;
+package org.wso2.confvalidator.utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,5 +74,4 @@ public class Constants {
     public static final String XPATH = "xpath";
     public static final String PASSABLE_VALUES = "parsableValues";
     public static final String REGEX = "regex";
-
 }

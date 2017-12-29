@@ -1,4 +1,4 @@
-package org.wso2.confvalidator.org.wso2.confvalidator.utils;
+package org.wso2.confvalidator.utils;
 
 import org.w3c.dom.Document;
 

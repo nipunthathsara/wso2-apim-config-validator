@@ -1,11 +1,11 @@
-package org.wso2.confvalidator;
+package org.wso2.confvalidator.validators;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
+import org.wso2.confvalidator.utils.XpathEvaluator;
 
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -72,7 +72,7 @@ public class Validator {
         if (configuration.containsKey("xpath")) {
             xpath = configuration.get("xpath").toString();
             //Logging what is to be validated
-            log.info("Node : " + currentNode + " File : " + configFileName + " Configuration : " + xpath);
+            log.info("Config : " + xpath);
         } else {
             return;
         }
@@ -83,6 +83,7 @@ public class Validator {
                 doMandatoryCheck(configuration, xpath);
             } catch (XPathExpressionException e) {
                 //If xpath evaluation failed, stop further validations
+                log.error("Failed obtaining value from XML, Aborting validation");
                 e.printStackTrace();
                 return;
             }
@@ -93,7 +94,9 @@ public class Validator {
             try {
                 value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(configFileName), xpath, XPathConstants.STRING).toString();
                 if(configuration.get("default").equals(value)){
-                    log.info(xpath + " is using default value");
+                    log.info("Using default value");
+                }else {
+                    log.info("Not default value");
                 }
             } catch (XPathExpressionException e) {
                 e.printStackTrace();
@@ -129,9 +132,9 @@ public class Validator {
                 }
             }
             if(acceptableValue){
-                log.info(xpath + " is assigned an acceptable value");
+                log.info("Acceptable value");
             }else{
-                log.error(xpath + " is not assigned an acceptable value");
+                log.error("Not an acceptable value");
             }
         }
 
@@ -139,9 +142,9 @@ public class Validator {
         if(configuration.containsKey("regex")){
             boolean match = value.matches(configuration.get("regex").toString());
             if(match){
-                log.info(xpath + " validation against regex is fine");
+                log.info("Regex validation okay" );
             }else{
-                log.error(xpath + " validation against regex failed");
+                log.error("Regex validation failed" + configuration.get("regex").toString());
             }
         }
     }
@@ -153,13 +156,13 @@ public class Validator {
             try {
                 String value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(configFileName), xpath, XPathConstants.STRING).toString();
                 if ("".equals(value)) {
-                    log.error("Mandatory configuration : " + xpath + " is not defined");
+                    log.error("Mandatory value is empty");
                 }else {
-                    log.info("Mandatory configuration : " + xpath + " is not empty");
+                    log.info("Mandatory value defined");
                 }
             } catch (XPathExpressionException e) {
                 //Assumption: xml is commented out
-                log.error("Can not find Mandatory configuration : " + xpath + " Check if commented out");
+                log.error("Mandatory config commented out");
                 //Throwing new exception for the caller to know that xpath evaluation has failed
                 //therefore, stop further validations
                 throw new XPathExpressionException("Can not evaluate xpath");

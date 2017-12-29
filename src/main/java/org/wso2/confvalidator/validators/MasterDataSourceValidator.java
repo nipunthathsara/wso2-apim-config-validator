@@ -1,10 +1,10 @@
-package org.wso2.confvalidator;
+package org.wso2.confvalidator.validators;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.Constants;
-import org.wso2.confvalidator.org.wso2.confvalidator.utils.XpathEvaluator;
+import org.wso2.confvalidator.utils.Constants;
+import org.wso2.confvalidator.utils.XpathEvaluator;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ public class MasterDataSourceValidator extends Validator{
         this.xpathEvaluator = new XpathEvaluator();
         configFileName = Constants.MASTER_DATASOURCE_XML;
         log = Logger.getLogger(MasterDataSourceValidator.class);
-        log.info("Validating Master-dataource.xml on " + currentNode + " Node...");
+        log.info("Validating " + configFileName);
     }
 
     //TODO
