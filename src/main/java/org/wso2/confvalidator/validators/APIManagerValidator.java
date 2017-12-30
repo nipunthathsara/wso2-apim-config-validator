@@ -24,6 +24,5 @@ public class APIManagerValidator extends Validator{
         log.info("Validating " + configFileName);
     }
 
-    //TODO
-    //Write if any over riding or custom methods is needed
+    //if any over riding or custom methods are needed
 }

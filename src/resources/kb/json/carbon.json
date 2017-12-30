@@ -12,16 +12,18 @@
     "WebContextRoot": "/",
     "ItemsPerPage": "15",
     "Ports": {
-      "Offset": "0",
-      "JMX": {
-        "RMIRegistryPort": "9999",
-        "RMIServerPort": "11111"
-      },
-      "EmbeddedLDAP": {
-        "LDAPServerPort": "10389",
-        "KDCServerPort": "8000"
-      },
-      "ThriftEntitlementReceivePort": "10500"
+      "subConfigurations" : {
+        "Offset": {
+          "xpath" : "//Server/Ports/Offset/text()",
+          "default" : "0",
+          "mandatory" : {"pub" : "yes", "store" : "yes", "gw" : "yes", "km" : "yes", "tm" : "yes"},
+          "regex" : "^[1-9]\d*$",
+          "regexError" : "Not a positive integer"
+        },
+        "JMX": { "RMIRegistryPort": "9999", "RMIServerPort": "11111"},
+        "EmbeddedLDAP": { "LDAPServerPort": "10389", "KDCServerPort": "8000"},
+        "ThriftEntitlementReceivePort": "10500"
+      }
     },
     "JNDI": {
       "DefaultInitialContextFactory": "org.wso2.carbon.tomcat.jndi.CarbonJavaURLContextFactory",
@@ -65,28 +67,57 @@
       ]
     },
     "Security": {
-      "KeyStore": {
-        "Location": "${carbon.home}/repository/resources/security/wso2carbon.jks",
-        "Type": "JKS",
-        "Password": "wso2carbon",
-        "KeyAlias": "wso2carbon",
-        "KeyPassword": "wso2carbon"
+      "subConfigurations" : {
+        "KeyStore": {
+          "subConfigurations" :{
+            "Location": {
+              "default" : "${carbon.home}/repository/resources/security/wso2carbon.jks",
+              "xpath" : "//Server/Security/KeyStore/Location/text()",
+              "regex" : "",
+              "regexError" : "not a valid file location"
+            },
+            "Type": {
+              "default" : "JKS",
+              "xpath" : "//Server/Security/KeyStore/Type/text()",
+              "parsableValues": ["JKS", "PKCS12"]
+            },
+            "Password": "wso2carbon",
+            "KeyAlias": {
+              "default" : "wso2carbon",
+              "xpath" : "//Server/Security/KeyStore/KeyAlias/text()"
+            },
+            "KeyPassword": {
+              "default" : "wso2carbon",
+              "xpath" : "//Server/Security/KeyStore/KeyPassword/text()"
+            }
+          }
       },
-      "TrustStore": {
-        "Location": "${carbon.home}/repository/resources/security/client-truststore.jks",
-        "Type": "JKS",
-        "Password": "wso2carbon"
-      },
-      "NetworkAuthenticatorConfig": {
+        "TrustStore": {
+          "subConfigurations" : {
+            "Location": {
+              "default" : "${carbon.home}/repository/resources/security/client-truststore.jks",
+              "xpath" : "//Server/Security/TrustStore/Location/text()"
+            },
+            "Type": {
+              "default" : "JKS",
+              "xpath" : "//Server/Security/TrustStore/Type/text()"
+            },
+            "Password": {
+              "default" : "wso2carbon",
+              "xpath" : "//Server/Security/TrustStore/Password/text()"
+            }
+          }
+        },
+        "NetworkAuthenticatorConfig": {
 
-      },
-      "TomcatRealm": "UserManager",
-      "DisableTokenStore": "false",
-      "XSSPreventionConfig": {
-        "Enabled": "true",
-        "Rule": "allow",
-        "Patterns": {
-
+        },
+        "TomcatRealm": "UserManager",
+        "DisableTokenStore": "false",
+        "XSSPreventionConfig": {
+          "Enabled": "true",
+          "Rule": "allow",
+          "Patterns": {
+          }
         }
       }
     },
@@ -155,14 +186,40 @@
       ]
     },
     "DeploymentSynchronizer": {
-      "Enabled": "false",
-      "AutoCommit": "false",
-      "AutoCheckout": "true",
-      "RepositoryType": "svn",
-      "SvnUrl": "http://svnrepo.example.com/repos/",
-      "SvnUser": "username",
-      "SvnPassword": "password",
-      "SvnUrlAppendTenantId": "true"
+      "subConfigurations" : {
+        "Enabled": {
+          "default" : "false",
+          "xpath" : "//Server/DeploymentSynchronizer/Enabled/text()",
+          "parsableValues" : ["true", "false"]
+        },
+        "AutoCommit": {
+          "default" : "false",
+          "xpath" : "//Server/DeploymentSynchronizer/AutoCommit/text()",
+          "parsableValues" : ["true", "false"]
+        },
+        "AutoCheckout": {
+          "default" : "true",
+          "xpath" : "//Server/DeploymentSynchronizer/AutoCheckout/text()",
+          "parsableValues" : ["true", "false"]
+        },
+        "RepositoryType": {
+          "default" : "svn",
+          "xpath" : "//Server/DeploymentSynchronizer/RepositoryType/text()"
+        },
+        "SvnUrl": {
+          "default" : "http://svnrepo.example.com/repos/",
+          "xpath" : "//Server/DeploymentSynchronizer/SvnUrl/text()",
+          "regex" : "",
+          "regexError" : ""
+        },
+        "SvnUser": "username",
+        "SvnPassword": "password",
+        "SvnUrlAppendTenantId": {
+          "default" :"true",
+          "parsableValues" : ["true", "false"],
+          "xpath" : "//Server/DeploymentSynchronizer/SvnUrlAppendTenantId/text()"
+        }
+      }
     },
     "ServerInitializers": {
 

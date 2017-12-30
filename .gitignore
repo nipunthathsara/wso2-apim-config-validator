@@ -34,4 +34,4 @@ confvalidator.iml
 /configurations/store/conf
 /configurations/tm/conf
 
-log.out
+/log.out

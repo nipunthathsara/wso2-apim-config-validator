@@ -22,8 +22,6 @@ public class CarbonValidator extends Validator {
         log = Logger.getLogger(CarbonValidator.class);
         log.info("Validating " + configFileName);
     }
-
-    //TODO
     //Write if any over riding or custom methods is needed
 
 

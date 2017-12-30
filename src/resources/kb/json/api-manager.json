@@ -16,7 +16,7 @@
   "EnableSecureVault": {
     "default" : "false",
     "parsableValues" : ["true", "false"],
-    "mandatory" : {"pub" : "true"},
+    "mandatory" : {"pub" : "yes"},
     "xpath" : "//APIManager/EnableSecureVault/text()"
   },
   "AuthManager": {

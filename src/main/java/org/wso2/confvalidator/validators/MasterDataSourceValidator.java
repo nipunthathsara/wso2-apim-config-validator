@@ -22,6 +22,5 @@ public class MasterDataSourceValidator extends Validator{
         log.info("Validating " + configFileName);
     }
 
-    //TODO
     //Write if any over riding or custom methods is needed
 }
