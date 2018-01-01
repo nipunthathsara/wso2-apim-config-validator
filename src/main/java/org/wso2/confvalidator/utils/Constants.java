@@ -23,14 +23,18 @@ public class Constants {
     public static final String CARBON_XML_PATH = "/conf/carbon.xml";
     public static final String USER_MGT_XML_PATH = "/conf/user-mgt.xml";
     public static final String MASTER_DATASOURCE_XML_PATH = "/conf/datasources/master-datasources.xml";
-    public static final String[] CONF_PATH_ARRAY = {API_MANAGER_XML_PATH, CARBON_XML_PATH, USER_MGT_XML_PATH, MASTER_DATASOURCE_XML_PATH};
+    public static final String AXIS2_XML_PATH = "/conf/axis2/axis2.xml";
+    public static final String[] CONF_PATH_ARRAY = {API_MANAGER_XML_PATH, CARBON_XML_PATH, USER_MGT_XML_PATH
+            , MASTER_DATASOURCE_XML_PATH, AXIS2_XML_PATH};
     public static final Map<String, String> CONF_PATH_MAP = new HashMap();
 
     public static final String API_MANAGER_XML = "api-manager.xml";
     public static final String CARBON_XML = "carbon.xml";
     public static final String USER_MGT_XML = "user-mgt.xml";
     public static final String MASTER_DATASOURCE_XML = "master-datasources.xml";
-    public static final String[] CONF_NAME_ARRAY = {API_MANAGER_XML, CARBON_XML, USER_MGT_XML, MASTER_DATASOURCE_XML};
+    public static final String AXIS2_XML = "axis2.xml";
+    public static final String[] CONF_NAME_ARRAY = {API_MANAGER_XML, CARBON_XML, USER_MGT_XML, MASTER_DATASOURCE_XML
+            , AXIS2_XML};
 
     public static final String GW = "gw";
     public static final String KM = "km";
@@ -46,14 +50,18 @@ public class Constants {
     public static final String CARBON_XSD_PATH = "/carbon.xsd";
     public static final String USER_MGT_XSD_PATH = "/user-mgt.xsd";
     public static final String MASTER_DATASOURCE_XSD_PATH = "/master-datasource.xsd";
-    public static final String[] XSD_PATH_ARRAY = {API_MANAGER_XSD_PATH, CARBON_XSD_PATH, USER_MGT_XSD_PATH, MASTER_DATASOURCE_XSD_PATH};
+    public static final String AXIS2_XSD_PATH = "/axis2.xsd";
+    public static final String[] XSD_PATH_ARRAY = {API_MANAGER_XSD_PATH, CARBON_XSD_PATH, USER_MGT_XSD_PATH
+            , MASTER_DATASOURCE_XSD_PATH, AXIS2_XSD_PATH};
     public static final Map<String, String> XSD_PATH_MAP = new HashMap();
 
     public static final String API_MANAGER_JSON_PATH = "/api-manager.json";
     public static final String CARBON_JSON_PATH = "/carbon.json";
     public static final String USER_MGT_JSON_PATH = "/user-mgt.json";
     public static final String MASTER_DATASOURCE_JSON_PATH = "/master-datasource.json";
-    public static final String[] JSON_PATH_ARRAY = {API_MANAGER_JSON_PATH, CARBON_JSON_PATH, USER_MGT_JSON_PATH, MASTER_DATASOURCE_JSON_PATH};
+    public static final String AXIS2_JSON_PATH = "/axis2.json";
+    public static final String[] JSON_PATH_ARRAY = {API_MANAGER_JSON_PATH, CARBON_JSON_PATH, USER_MGT_JSON_PATH
+            , MASTER_DATASOURCE_JSON_PATH, AXIS2_JSON_PATH};
     public static final Map<String, String> JSON_PATH_MAP = new HashMap();
 
     static {

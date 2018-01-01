@@ -190,34 +190,40 @@
         "Enabled": {
           "default" : "false",
           "xpath" : "//Server/DeploymentSynchronizer/Enabled/text()",
-          "parsableValues" : ["true", "false"]
+          "parsableValues" : ["true", "false"],
+          "mandatory" : {"gw" : "yes", "tm" : "yes"}
         },
         "AutoCommit": {
           "default" : "false",
           "xpath" : "//Server/DeploymentSynchronizer/AutoCommit/text()",
-          "parsableValues" : ["true", "false"]
+          "parsableValues" : ["true", "false"],
+          "mandatory" : {"gw" : "yes", "tm" : "yes"}
         },
         "AutoCheckout": {
           "default" : "true",
           "xpath" : "//Server/DeploymentSynchronizer/AutoCheckout/text()",
-          "parsableValues" : ["true", "false"]
+          "parsableValues" : ["true", "false"],
+          "mandatory" : {"gw" : "yes", "tm" : "yes"}
         },
         "RepositoryType": {
           "default" : "svn",
-          "xpath" : "//Server/DeploymentSynchronizer/RepositoryType/text()"
+          "xpath" : "//Server/DeploymentSynchronizer/RepositoryType/text()",
+          "mandatory" : {"gw" : "yes", "tm" : "yes"}
         },
         "SvnUrl": {
           "default" : "http://svnrepo.example.com/repos/",
           "xpath" : "//Server/DeploymentSynchronizer/SvnUrl/text()",
           "regex" : "",
-          "regexError" : ""
+          "regexError" : "",
+          "mandatory" : {"gw" : "yes", "tm" : "yes"}
         },
         "SvnUser": "username",
         "SvnPassword": "password",
         "SvnUrlAppendTenantId": {
           "default" :"true",
           "parsableValues" : ["true", "false"],
-          "xpath" : "//Server/DeploymentSynchronizer/SvnUrlAppendTenantId/text()"
+          "xpath" : "//Server/DeploymentSynchronizer/SvnUrlAppendTenantId/text()",
+          "mandatory" : {"gw" : "yes", "tm" : "yes"}
         }
       }
     },

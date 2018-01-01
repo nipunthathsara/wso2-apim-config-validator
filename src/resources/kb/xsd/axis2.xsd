@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <!-- XML Schema Generated from XML Document on Mon Jan 01 2018 17:33:50 GMT+0530 (+0530) -->
+    <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+    <xs:element name="axisconfig">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="parameter" maxOccurs="unbounded" type="xs:string">
+                    <xs:complexType>
+                        <xs:attribute name="name" type="xs:string"></xs:attribute>
+                        <xs:attribute name="locked" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="listener">
+                    <xs:complexType>
+                        <xs:attribute name="class" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="messageReceivers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="messageReceiver" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="mep" type="xs:string"></xs:attribute>
+                                    <xs:attribute name="class" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="messageFormatters">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="messageFormatter" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="contentType" type="xs:string"></xs:attribute>
+                                    <xs:attribute name="class" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="messageBuilders">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="messageBuilder" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="contentType" type="xs:string"></xs:attribute>
+                                    <xs:attribute name="class" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="transportReceiver" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="parameter" maxOccurs="unbounded" type="xs:int">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                    <xs:attribute name="locked" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string"></xs:attribute>
+                        <xs:attribute name="class" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="transportSender" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="parameter" type="xs:string">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                    <xs:attribute name="locked" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string"></xs:attribute>
+                        <xs:attribute name="class" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="module">
+                    <xs:complexType>
+                        <xs:attribute name="ref" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="clustering">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="parameter" maxOccurs="unbounded" type="xs:string">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="members">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="member">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="hostName" type="xs:string"></xs:element>
+                                                    <xs:element name="port" type="xs:int"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="groupManagement">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="applicationDomain">
+                                            <xs:complexType>
+                                                <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                                <xs:attribute name="description" type="xs:string"></xs:attribute>
+                                                <xs:attribute name="agent" type="xs:string"></xs:attribute>
+                                                <xs:attribute name="subDomain" type="xs:string"></xs:attribute>
+                                                <xs:attribute name="port" type="xs:int"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="enable" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="class" type="xs:string"></xs:attribute>
+                        <xs:attribute name="enable" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="phaseOrder" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="phase" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="handler">
+                                            <xs:complexType>
+                                                <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                                <xs:attribute name="class" type="xs:string"></xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="name" type="xs:string"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="type" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
