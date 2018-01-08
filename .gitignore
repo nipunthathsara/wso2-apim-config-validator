@@ -28,7 +28,8 @@ hs_err_pid*
 confvalidator.iml
 
 # Ignore conf directories
-/configurations/gw/conf
+/configurations/gw-m/conf
+/configurations/gw-w/conf
 /configurations/km/conf
 /configurations/pub/conf
 /configurations/store/conf
