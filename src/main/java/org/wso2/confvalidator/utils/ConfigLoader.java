@@ -60,19 +60,19 @@ public class ConfigLoader {
         Map<String, String> nodeURLMap = new HashMap();
         Scanner scanner = new Scanner(System.in);
         for (Map.Entry<String, Boolean> entry: distribution.entrySet()){
-            if(entry.getValue() && !entry.getKey().equals(Constants.GW)){
+            if(entry.getValue() && !entry.getKey().equals(Constants.GWW)){
                 System.out.println("Enter url for " + entry.getKey() + "node : ");
                 nodeURLMap.put(entry.getKey(), scanner.nextLine());
-            }else if(entry.getKey().equals(Constants.GW) && entry.getValue()){
-                System.out.println("Enter url for GW Manager : ");
+            }else if(entry.getKey().equals(Constants.GWW) && entry.getValue()){
+                System.out.println("Enter url for GWW Manager : ");
                 nodeURLMap.put("gwm", scanner.nextLine());
-                System.out.println("Enter url for GW Worker : ");
+                System.out.println("Enter url for GWW Worker : ");
                 nodeURLMap.put("gww", scanner.nextLine());
             }
         }
         System.out.println("Enter url for database : ");
         nodeURLMap.put("db", scanner.nextLine());
-        System.out.println("Enter url for GW Manager : ");
+        System.out.println("Enter url for GWW Manager : ");
         return nodeURLMap;
     }
 }
