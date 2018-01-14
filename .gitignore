@@ -27,12 +27,5 @@ hs_err_pid*
 /target
 confvalidator.iml
 
-# Ignore conf directories
-/configurations/gw-m/conf
-/configurations/gw-w/conf
-/configurations/km/conf
-/configurations/pub/conf
-/configurations/store/conf
-/configurations/tm/conf
-
 /log.out
+/error.log

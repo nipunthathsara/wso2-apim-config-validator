@@ -1,3 +1,20 @@
+/*
+ * Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.wso2.confvalidator.validators;
 
 import org.apache.log4j.Logger;
@@ -5,16 +22,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.wso2.confvalidator.utils.Constants;
 import org.wso2.confvalidator.utils.XpathEvaluator;
-
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Created by nipun on Dec, 2017
- */
 public class Validator {
     protected static Map<String, Map<String, Document>> configs;
     protected static Map<String, JSONObject> jsonKB;
@@ -39,22 +53,6 @@ public class Validator {
     }
 
     /**
-     * TODO remove overloading. keep only one
-     * Method to re-iterate sub subConfigurations
-     * @param subConfigurations
-     */
-    public void iterator(JSONObject subConfigurations) {
-        //JSONObject configKB = jsonKB.get(configFileName);
-        Iterator<?> keySet = subConfigurations.keySet().iterator();
-        while (keySet.hasNext()) {
-            String key = (String) keySet.next();
-            if (subConfigurations.get(key) instanceof JSONObject) {
-                validateCommonConfigs((JSONObject) subConfigurations.get(key));
-            }
-        }
-    }
-
-    /**
      * Define all common validations/validation calls here
      * @param configuration
      */
@@ -62,50 +60,72 @@ public class Validator {
         String value = null;
         String xpath;
 
-        //Does it contain sub configurations? If so, iterate again
-        if (configuration.containsKey("subConfigurations")) {
-            iterator((JSONObject) configuration.get("subConfigurations"));
-            return;
-        }
-
         //xpath should be defined in order to validate the configuration
-        if (configuration.containsKey("xpath")) {
-            xpath = configuration.get("xpath").toString();
-            //Logging what is to be validated
+        if (configuration.containsKey(Constants.XPATH)) {
+            xpath = configuration.get(Constants.XPATH).toString();
             log.info("Config : " + xpath);
         } else {
             return;
         }
 
         //Mandatory check
-        if (configuration.containsKey("mandatory") && configuration.containsKey("xpath")) {
+        if (configuration.containsKey(Constants.MANDATORY)) {
             try {
                 doMandatoryCheck(configuration, xpath);
             } catch (XPathExpressionException e) {
                 //If xpath evaluation failed, stop further validations
-                log.error("Failed obtaining value from XML, Aborting validation");
+                log.error("Skipping mandatory config...check if commented out");
                 e.printStackTrace();
                 return;
             }
         }
 
         //Default check
-        if (configuration.containsKey("default")) {
+        if (configuration.containsKey(Constants.DEFAULT)) {
             try {
-                value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(configFileName), xpath, XPathConstants.STRING).toString();
-                if(configuration.get("default").equals(value)){
+                value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(configFileName), xpath,
+                        XPathConstants.STRING).toString();
+                if(configuration.get(Constants.DEFAULT).equals(value)){
                     log.info("Using default value");
                 }else {
-                    log.info("Not default value");
+                    log.info("Not default value : " + value);
                 }
             } catch (XPathExpressionException e) {
-                e.printStackTrace();
+                log.warn("Skipping config...check if commented out");
+                return;
+            }
+        }
+
+        //Regex validation
+        if(configuration.containsKey(Constants.REGEX)){
+            boolean match = value.matches(configuration.get(Constants.REGEX).toString());
+            if(match){
+                log.info("Regex validation okay" );
+            }else{
+                log.error("Regex validation failed : " + configuration.get(Constants.REGEX_ERROR).toString());
+            }
+        }
+
+        //Parsable values check
+        if (configuration.containsKey(Constants.PASSABLE_VALUES)) {
+            JSONArray parsableValues = (JSONArray) configuration.get(Constants.PASSABLE_VALUES);
+            boolean acceptableValue = false;
+            for (int i = 0; i < parsableValues.size(); i++) {
+                if (value.equals(parsableValues.get(i))) {
+                    acceptableValue = true;
+                    break;
+                }
+            }
+            if(acceptableValue){
+                log.info("Acceptable value");
+            }else{
+                log.error("Not an acceptable value : " + value);
             }
         }
 
         //Cross reference check
-        if (configuration.containsKey("crossReference")) {
-            JSONObject references = (JSONObject) configuration.get("crossReference");
+        if (configuration.containsKey(Constants.CROSS_REFERENCE)) {
+            JSONObject references = (JSONObject) configuration.get(Constants.CROSS_REFERENCE);
             Iterator<?> keySet = references.keySet().iterator();
             //iterate through node names in cross references list
             while (keySet.hasNext()) {
@@ -120,41 +140,15 @@ public class Validator {
                 }
             }
         }
-
-        //Parsable values check
-        if (configuration.containsKey("parsableValues")) {
-            JSONArray parsableValues = (JSONArray) configuration.get("parsableValues");
-            boolean acceptableValue = false;
-            for (int i = 0; i < parsableValues.size(); i++) {
-                if (value.equals(parsableValues.get(i))) {
-                    acceptableValue = true;
-                    break;
-                }
-            }
-            if(acceptableValue){
-                log.info("Acceptable value");
-            }else{
-                log.error("Not an acceptable value");
-            }
-        }
-
-        //Regex validation
-        if(configuration.containsKey("regex")){
-            boolean match = value.matches(configuration.get("regex").toString());
-            if(match){
-                log.info("Regex validation okay" );
-            }else{
-                log.error("Regex validation failed" + configuration.get("regex").toString());
-            }
-        }
     }
 
     public static void doMandatoryCheck(JSONObject configuration, String xpath) throws XPathExpressionException{
-        JSONObject mandatoryKB = (JSONObject) configuration.get("mandatory");
-        //If configuration is mandatory for given node
-        if (mandatoryKB.containsKey(currentNode) && "yes".equals(mandatoryKB.get(currentNode).toString())) {
+        JSONArray mandatoryNodes = (JSONArray) configuration.get(Constants.MANDATORY);
+        //does the configuration is mandatory for current node
+        if (mandatoryNodes.contains(currentNode)) {
             try {
-                String value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(configFileName), xpath, XPathConstants.STRING).toString();
+                String value = xpathEvaluator.evaluateXpath(configs.get(currentNode).get(configFileName), xpath,
+                        XPathConstants.STRING).toString();
                 if ("".equals(value)) {
                     log.error("Mandatory value is empty");
                 }else {
@@ -163,8 +157,7 @@ public class Validator {
             } catch (XPathExpressionException e) {
                 //Assumption: xml is commented out
                 log.error("Mandatory config commented out");
-                //Throwing new exception for the caller to know that xpath evaluation has failed
-                //therefore, stop further validations
+                //Throwing new exception for the caller to know that xpath evaluation has failed. stop validating
                 throw new XPathExpressionException("Can not evaluate xpath");
             }
         }
@@ -182,10 +175,10 @@ public class Validator {
                 log.error("Error in KB : cross reference can only contain file name and xpath");
                 System.exit(1);
             }
-
             if (configs.containsKey(node) && configs.get(node).containsKey(fileAndXpath[0])) {
-                //Check in all occurrences of xpath
-                NodeList remoteValues = (NodeList) xpathEvaluator.evaluateXpath(configs.get(node).get(fileAndXpath[0]), fileAndXpath[1], XPathConstants.NODESET);
+                //Check in all occurrences of xpath - eg: master-datasource.xml
+                NodeList remoteValues = (NodeList) xpathEvaluator.evaluateXpath(configs.get(node).get(fileAndXpath[0]),
+                        fileAndXpath[1], XPathConstants.NODESET);
                 boolean match = false;
                 for (int j = 0; j < remoteValues.getLength(); j++) {
                     String remoteValue = remoteValues.item(j).getNodeValue();
@@ -201,5 +194,4 @@ public class Validator {
             }
         }
     }
-
 }

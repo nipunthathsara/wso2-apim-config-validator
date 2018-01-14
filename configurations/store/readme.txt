@@ -1,1 +1,0 @@
-conf directory of the GW node if any

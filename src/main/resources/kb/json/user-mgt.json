@@ -1,0 +1,21 @@
+{
+  "//UserManager" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/AddAdmin" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/AdminRole" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/AdminUser" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/AdminUser/UserName" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/AdminUser/Password" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/EveryOneRoleName" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/Property" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/Configuration/Property/@name" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/UserStoreManager" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/UserStoreManager/@class" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/UserStoreManager/Property" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/UserStoreManager/Property/@name" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/AuthorizationManager" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/AuthorizationManager/@class" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/AuthorizationManager/Property" : {"default" : "",  "mandatory" : [], "parsableValues" : []},
+  "//UserManager/Realm/AuthorizationManager/Property/@name" : {"default" : "",  "mandatory" : [], "parsableValues" : []}
+}

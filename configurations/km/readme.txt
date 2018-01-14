@@ -1,1 +1,0 @@
-conf directory of the KM node if any

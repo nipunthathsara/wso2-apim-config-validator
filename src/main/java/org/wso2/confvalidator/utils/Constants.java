@@ -1,16 +1,27 @@
+/*
+ * Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.wso2.confvalidator.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by nipun on Dec, 2017
- */
 public class Constants {
-
-    //TODO Take CONF_ROOT as an argument
-    public static final String CONF_ROOT = "/home/nipun/data/task/confvalidator/configurations";
-
+    public static String CONF_ROOT;
     public static final String GWW_PATH = "/gw-w";
     public static final String GWM_PATH = "/gw-m";
     public static final String KM_PATH = "/km";
@@ -45,7 +56,7 @@ public class Constants {
     public static final String TM = "tm";
     public static final String[] NODE_NAME_ARRAY = {GWW, GWM, KM, PUB, STORE, TM};
 
-    public static final String KB_ROOT = "/home/nipun/data/task/confvalidator/src/resources/kb";
+    public static final String KB_ROOT = "src/main/resources/kb";
     public static final String JSON_KB = "/json";
     public static final String XSD_KB = "/xsd";
     public static final String API_MANAGER_XSD_PATH = "/api-manager.xsd";
@@ -77,11 +88,11 @@ public class Constants {
         }
     }
 
-    public static final String SUB_CONFIGURATIONS = "subConfigurations";
     public static final String MANDATORY = "mandatory";
     public static final String DEFAULT = "default";
     public static final String CROSS_REFERENCE = "crossReference";
     public static final String XPATH = "xpath";
     public static final String PASSABLE_VALUES = "parsableValues";
     public static final String REGEX = "regex";
+    public static final String REGEX_ERROR = "regexError";
 }

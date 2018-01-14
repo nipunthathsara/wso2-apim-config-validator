@@ -1,21 +1,34 @@
+/*
+ * Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.wso2.confvalidator.utils;
 
 import org.w3c.dom.Document;
-
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * Created by nipun on Dec, 2017
- */
 public class ConfigLoader {
     private static Map<String, Boolean> distribution = new HashMap();
     private static DOMBuilder domBuilder;
 
     /**
-     * This method goes through the uploaded configs and identifies
+     * Goes through the uploaded configs and identifies
      * available profiles.
      * @return
      */
@@ -50,29 +63,5 @@ public class ConfigLoader {
             }
         }
         return configs;
-    }
-
-    /**
-     * Takes accessible URLs for available nodes
-     * @param distribution
-     */
-    public static Map<String, String> getNodeURLs(Map<String, Boolean> distribution){
-        Map<String, String> nodeURLMap = new HashMap();
-        Scanner scanner = new Scanner(System.in);
-        for (Map.Entry<String, Boolean> entry: distribution.entrySet()){
-            if(entry.getValue() && !entry.getKey().equals(Constants.GWW)){
-                System.out.println("Enter url for " + entry.getKey() + "node : ");
-                nodeURLMap.put(entry.getKey(), scanner.nextLine());
-            }else if(entry.getKey().equals(Constants.GWW) && entry.getValue()){
-                System.out.println("Enter url for GWW Manager : ");
-                nodeURLMap.put("gwm", scanner.nextLine());
-                System.out.println("Enter url for GWW Worker : ");
-                nodeURLMap.put("gww", scanner.nextLine());
-            }
-        }
-        System.out.println("Enter url for database : ");
-        nodeURLMap.put("db", scanner.nextLine());
-        System.out.println("Enter url for GWW Manager : ");
-        return nodeURLMap;
     }
 }
